@@ -1,6 +1,6 @@
-package UI;
+package ui;
 
-import Carte.Pizza;
+import carte.Pizza;
 
 import java.io.*;
 import java.util.*;

@@ -1,9 +1,5 @@
-package Carte;
+package carte;
 
-<<<<<<< HEAD
-public class Carte {
-
-=======
 import java.util.ArrayList;
 
 public class Carte {
@@ -22,5 +18,4 @@ public class Carte {
     new Pizza("Pizza 3", topping, 58);
   }
 
->>>>>>> 4de015141b30bfbf1aac3c683dea61dad7919bb9
 }
