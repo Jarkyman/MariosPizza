@@ -1,4 +1,4 @@
 package UI;
 
-public class FileHandeling {
+public class FileHandling {
 }
