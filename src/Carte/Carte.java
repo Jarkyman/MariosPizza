@@ -1,2 +1,5 @@
-package Carte;public class Carte {
+package Carte;
+
+public class Carte {
+
 }
