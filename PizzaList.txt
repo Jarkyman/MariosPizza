@@ -1,19 +1,97 @@
 1. Margherita
-Ost, Tomat
-50.0
+Cheese, Tomato, Oregano
+55.0
 2. Vesuvio
-Ost, Tomat, Skinke
+Cheese, Tomato, Ham
 59.0
 3. Italiana
-Ost, Tomat, Kødsause, Løg
+Cheese, Tomato, Meat sauce, Onion
 65.0
 4. SAB
-Ost, Tomat, Kebab, Bernaise
+Cheese, Tomato, Kebab, Bernaise sause
 65.0
 5. Hawaii
-Ost, Tomat, Skinke, Ananas
+Cheese, Tomato, Ham, Pineapple
 65.0
-Jackie Speciel
-Ost, Tomat, Kebab, Peperoni
-75
+6. Jackie Speciel
+Cheese, Tomato, Kebab, Pepperoni
+75.0
+7. Capricciosa
+Cheese, Tomato, Ham, Mushrooms
+65.0
+8. Oriental
+Tomato, Cheese, Ground beef, Chili
+65.0
+9. Torino
+Tomato, Cheese, Meat strips, Mushrooms, Onion
+75.0
+10. Toskana
+Cheese, Tomato, Ham, Bacon
+65.0
+11. Chicken
+Tomato, Cheese, Curry chicken, Bacon
+65.0
+12. Pepperoni
+Cheese, Tomato, Ham, Pepperoni
+65.0
+13. O sole mio
+Tomato, Cheese, Tuna, Mushrooms
+69.0
+14. Vegetariana
+Tomato, Cheese, Mushrooms, Paprika, Onion
+65.0
+15. Mexicana
+Tomato, Cheese, Ground beef, Mushrooms, Chili, Paprika
+69.0
+16. Mario special
+Tomato, Cheese, Kebab, Curry chicken, Ham, Pepperoni, Bacon, Ground beef
+95.0
+17. Sicillano
+Cheese, Tomato, Sausages, Bacon, Eggs, Paprika
+69
+16. Mama mia
+Tomato, Cheese, Meat strips, Pepperoni, Bacon, Garlic, Chili
+85.0
+17. Acapulco
+Tomato, Cheese, Kebab, Onion, Jalapeño
+70.0
+18. Diego
+Tomato, Cheese, Kebab, Mushrooms, Chili
+65.0
+19. Kansas
+Tomato, Cheese, Ham, Mushrooms, Bacon, Onion, Cocktail sausages
+85.0
+20. House pizza
+Tomato, Cheese, Kebab, Mushrooms, Paprika, Onion
+69.0
+21. Gorgonzola
+Tomato, Cheese, Beef tenderloin, Gorgonzola, Oregano
+95.0
+22. Prosciutto Crudo
+Tomato, Cheese, Mushrooms, Parmaham, Rucula, Oregano
+85.0
+23. Caprese
+Cheese, Salt, Fresh mozarella, Fresh tomato, Basil, Oregano
+85.0
+24. Pescatore
+Tomato, Cheese, Tuna, Shrimps, Mussels, Oregano
+85.0
+25. Salami
+Tomato, Cheese, Salami, Oregano
+80.0
+26. Calzone
+Tomato, Cheese, Ham, Mushrooms, Ground beef, Oregano
+87.0
+27. Salmone
+Tomato, Cheese, Salmone, Spinachi, Onion, Fresh mozzarella
+83.0
+28. Venezia
+Tomato, Cheese, Ham, Mushrooms, Tuna, Shrimps, Oregano
+85.0
+29. Al Pollo
+Tomato, Cheese, Chicken, Pineapple, Mushrooms, Red pepper, Oregano
+88.0
+30. Verona
+Tomato, Cheese, Artichoke, Mushrooms, Pesto, Sun-dried tomato, Fresh parmesan, Oregano
+105.0
 

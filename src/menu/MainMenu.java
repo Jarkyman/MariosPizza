@@ -1,5 +1,9 @@
 package menu;
 
+import carte.Carte;
+import carte.Pizza;
+import orders.Order;
+import ui.FileHandling;
 import ui.UI;
 
 import java.util.ArrayList;
@@ -7,9 +11,16 @@ import java.util.ArrayList;
 public class MainMenu {
 
   private ArrayList<String> mainMenu = new ArrayList<>();
+  private UI ui;
+  private FileHandling fh = new FileHandling();
+  private Carte carte = new Carte();
+  private RegisterMenu rm = new RegisterMenu();
+
 
 
   public void runMainMenu(){
+
+    carte.setPizza(fh.loadPizzaFromFile("PizzaList.txt"));
 
     mainMenu.add("1. Show Pizza Menu");
     mainMenu.add("2. Register order");
@@ -19,7 +30,7 @@ public class MainMenu {
     mainMenu.add("6. View Statistics");
     mainMenu.add("9. Quit");
 
-    UI ui = new UI("MENU", mainMenu, "PLEASE CHOOSE OPTION: ");
+    ui = new UI("MENU", mainMenu, "PLEASE CHOOSE OPTION: ");
 
     int choice = 0;
 
@@ -28,19 +39,19 @@ public class MainMenu {
       choice = ui.readChoice();
       switch(choice){
         case 1:
-          ui.showPizzaMenu();
+          ui.showPizzaMenu(carte.getPizza());
           break;
         case 2:
-          registerOrder();
+          rm.registerPizza(carte.getPizza());
           break;
         case 3:
-          sendOrder();
+//          sendOrder();
           break;
         case 4:
-          removeOrder();
+//          removeOrder();
           break;
         case 5:
-          ui.viewOrders();
+//          ui.viewOrders();
           break;
         case 6:
           ui.viewStatistics();
@@ -53,4 +64,5 @@ public class MainMenu {
       }
     }
   }
+
 }

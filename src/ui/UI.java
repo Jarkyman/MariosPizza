@@ -1,6 +1,7 @@
 package ui;
 
 import carte.Pizza;
+import orders.Order;
 
 import javax.sound.midi.Soundbank;
 import java.util.ArrayList;
@@ -11,16 +12,27 @@ public class UI {
 
   //ATTRIBUTES
   private String title;
-  private ArrayList<String> list;
+  private ArrayList<String> list = new ArrayList<String>();
+  private ArrayList<Pizza> pizzaList;
   private String option;
 
 
   //CONSTRUCTOR
+
+  public UI(){}
+
   public UI(String title, ArrayList<String> list, String option){
     setTitle(title);
     setList(list);
     setOption(option);
   }
+/*
+  public UI(String title, ArrayList<Pizza> pizzaList, String option){
+    setTitle(title);
+    setPizzaList(pizzaList);
+    setOption(option);
+  }
+  */
 
   //GETTER
   public String getTitle(){
@@ -31,6 +43,10 @@ public class UI {
     return list;
   }
 
+  public ArrayList<Pizza> getPizzaList(){
+    return pizzaList;
+  }
+
   public String getOption(){return option;}
 
   //SETTER
@@ -38,13 +54,15 @@ public class UI {
 
   public void setList(ArrayList<String> list){this.list = list;}
 
+  public void setPizzaList(ArrayList<Pizza> pizzaList){this.pizzaList = pizzaList;}
+
   public void setOption(String option){this.option = option;}
 
 
   //METHODS
   public void printMenu(){
     System.out.println(getTitle());
-    for(String s : getList()){
+    for(Object s : getList()){
       System.out.println(s);
     }
   }
@@ -64,15 +82,17 @@ public class UI {
   }
 
 
-
-  //Might not need
   public void showPizzaMenu(ArrayList<Pizza> pizzaList){
     for(Pizza p : pizzaList){
-      System.out.println(p.toString());
+      System.out.println(p.getName() +" "+ p.getToppings().toString() +" "+ p.getPrice());
     }
   }
 
-  public void viewOrders(){}
+  public void viewOrder(Order order){
+    for(Pizza p : order.getPizzaOrder()){
+     System.out.println(p.getName() + " " + p.getToppings().toString() + " " + p.getPrice());
+    }
+  }
 
   public void viewStatistics(){}
 

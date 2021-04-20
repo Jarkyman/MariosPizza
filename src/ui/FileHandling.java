@@ -45,6 +45,7 @@ public class FileHandling {
 
       if (fileReader.hasNextLine()) {
         while (fileReader.hasNextLine()) {
+
           String temp;
           String name;
           ArrayList<String> topping1 = new ArrayList<>();
@@ -60,6 +61,7 @@ public class FileHandling {
           price = Double.parseDouble(temp);
 
           pizzaList.add( new Pizza(name, topping1, price));
+
 
         }
       }

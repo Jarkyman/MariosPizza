@@ -1,72 +1,49 @@
 package menu;
 
 import carte.Pizza;
+import orders.Order;
 import ui.UI;
 
 import java.util.ArrayList;
 
 public class RegisterMenu {
-<<<<<<< HEAD
 
-
-  MainMenu mainMenu = new MainMenu();
   private ArrayList<String> registerMenu = new ArrayList<>();
-
   private ArrayList<Pizza> pizzaInOrder = new ArrayList<>();
-
-  public void runRegisterMenu() {
-
-    registerMenu.add("1. Add extra Pizza");
-    registerMenu.add("2. Finish order");
-
-    UI ui = new UI("MENU: ", registerMenu, "PLEASE CHOOSE OPTION: ");
-
-    int choice = 0;
-
-    while (choice != 9) {
-      ui.printMenu();
-      choice = ui.readChoice();
-
-      switch (choice) {
-        case 1:
-          choosePizza();
-          break;
-        case 2:
-          chooseExtraTopping();
-          break;
-        case 3:
-          addExtraPizza();
-          break;
-        case 4:
-          finishOrder();
-          break;
-        case 9:
-          mainMenu.runMainMenu();
-      }
-    }
-  }
-=======
-  private ArrayList<String> registerMenu = new ArrayList<>();
-
-  private ArrayList<Pizza> pizzaInOrder = new ArrayList<>();
->>>>>>> 81edb3b6e9125de5faad8b4b189eb96dc67de98e
+  private Order order = new Order();
 
 
   public void registerPizza(ArrayList<Pizza> pizzasInMenu) {
-    while (!morePizza()) {
-      pizzaInOrder.add(pizzaInOrder(choosePizza(pizzasInMenu)));
-      morePizza();
+    morePizzaOption();
+    boolean quit = false;
+
+    while (!quit) {
+      order.addPizza(choosePizza(pizzasInMenu));
+
+      quit = morePizza();
     }
 
   }
 
+  private void morePizzaOption() {
+    registerMenu.add("1. Add Pizza");
+    registerMenu.add("2. View order");
+    registerMenu.add("3. Finish order");
+  }
+
   private boolean morePizza() {
-    UI ui = new UI("Do you want more?");
+
+    UI ui = new UI("MENU: ", registerMenu, "PLEASE CHOOSE OPTION: ");
+    ui.printMenu();
     int choice = ui.readChoice();
 
     if (choice == 1) {
       return false;
     } else if (choice == 2) {
+      ui.viewOrder(order);
+      return false;
+    } else if(choice == 3){
+      //Save order in file
       return true;
     }
 
@@ -75,14 +52,21 @@ public class RegisterMenu {
 
   public Pizza choosePizza(ArrayList<Pizza> pizzaInMenu) {
 
-    UI ui = new UI("Pizzas", pizzaInMenu.stream(), "Choose Pizza: ");
+    UI ui = new UI();
+    ui.returnMessage("MENU: ");
+    ui.showPizzaMenu(pizzaInMenu);
+    ui.setOption("PLEASE CHOOSE AN OPTION: ");
 
-    Pizza pizza = pizzaInMenu.get(ui.readChoice() - 1);
+    int choice =  ui.readChoice();
 
+    Pizza pizza = pizzaInMenu.get(choice - 1);
+
+    System.out.println(pizza.getName());
     //chooseToping();
 
     return pizza;
   }
+
 
   private void chooseToping() {
 
