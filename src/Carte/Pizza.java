@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Pizza {
 
-
   private String name;
   private ArrayList<String>toppings = new ArrayList<>();
   private double price;
