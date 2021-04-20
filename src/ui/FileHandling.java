@@ -51,16 +51,21 @@ public class FileHandling {
           ArrayList<String> topping1 = new ArrayList<>();
           double price;
           temp = fileReader.nextLine();
-          name = temp;
 
-          temp = fileReader.nextLine();
-          String[] toppingArray = temp.split(", ");
-          Collections.addAll(topping1, toppingArray);
+          if (!temp.isEmpty()) {
 
-          temp = fileReader.nextLine();
-          price = Double.parseDouble(temp);
+            name = temp;
 
-          pizzaList.add( new Pizza(name, topping1, price));
+            temp = fileReader.nextLine();
+            String[] toppingArray = temp.split(", ");
+            Collections.addAll(topping1, toppingArray);
+
+            temp = fileReader.nextLine();
+            price = Double.parseDouble(temp);
+
+            pizzaList.add(new Pizza(name, topping1, price));
+
+          }
 
 
         }
@@ -68,7 +73,7 @@ public class FileHandling {
 
       fileReader.close();
 
-    }catch (Exception e) {
+    } catch (Exception e) {
       e.printStackTrace();
     }
 
