@@ -1,8 +1,26 @@
 package menu;
 
+import ui.UI;
+
+import java.util.ArrayList;
+
 public class MainMenu {
 
+  private ArrayList<String> mainMenu = new ArrayList<>();
+
+
   public void runMainMenu(){
+
+    mainMenu.add("1. Show Pizza Menu");
+    mainMenu.add("2. Register order");
+    mainMenu.add("3. Send order");
+    mainMenu.add("4. Remove order");
+    mainMenu.add("5. View Orders");
+    mainMenu.add("6. View Statistics");
+    mainMenu.add("9. Quit");
+
+    UI ui = new UI("MENU", mainMenu, "PLEASE CHOOSE OPTION: ");
+
     int choice = 0;
 
     while(choice != 9){

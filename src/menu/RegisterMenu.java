@@ -2,15 +2,23 @@ package menu;
 
 import ui.UI;
 
+import java.util.ArrayList;
+
 public class RegisterMenu {
-  UI ui = new UI();
   MainMenu mainMenu = new MainMenu();
+  private ArrayList<String> registerMenu = new ArrayList<>();
 
   public void runRegisterMenu(){
+
+    registerMenu.add("1. Add extra Pizza");
+    registerMenu.add("2. Finish order");
+
+    UI ui = new UI("MENU: ", registerMenu, "PLEASE CHOOSE OPTION: ");
+
     int choice = 0;
 
     while(choice != 9){
-      ui.printRegisterMenu();
+      ui.printMenu();
       choice = ui.readChoice();
 
       switch(choice){
