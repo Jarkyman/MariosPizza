@@ -13,3 +13,7 @@ Ost, Tomat, Kebab, Bernaise
 5. Hawaii
 Ost, Tomat, Skinke, Ananas
 65.0
+Jackie Speciel
+Ost, Tomat, Kebab, Peperoni
+75
+
