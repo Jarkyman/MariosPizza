@@ -6,6 +6,7 @@ import ui.UI;
 import java.util.ArrayList;
 
 public class RegisterMenu {
+<<<<<<< HEAD
 
 
   MainMenu mainMenu = new MainMenu();
@@ -44,6 +45,11 @@ public class RegisterMenu {
       }
     }
   }
+=======
+  private ArrayList<String> registerMenu = new ArrayList<>();
+
+  private ArrayList<Pizza> pizzaInOrder = new ArrayList<>();
+>>>>>>> 81edb3b6e9125de5faad8b4b189eb96dc67de98e
 
 
   public void registerPizza(ArrayList<Pizza> pizzasInMenu) {
@@ -69,7 +75,7 @@ public class RegisterMenu {
 
   public Pizza choosePizza(ArrayList<Pizza> pizzaInMenu) {
 
-    UI ui = new UI(pizzaInMenu, "Choose Pizza: ");
+    UI ui = new UI("Pizzas", pizzaInMenu.stream(), "Choose Pizza: ");
 
     Pizza pizza = pizzaInMenu.get(ui.readChoice() - 1);
 
