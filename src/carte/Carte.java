@@ -13,7 +13,7 @@ public class Carte {
     topping.add(1,"Tomat");
     pizza.add(new Pizza ("1. Margherita", topping.get(0),topping.get(1), 50));
     topping.add (2,"Skinke");
-    pizza.add(new Pizza ("2. Vesuvio", topping.get(0),topping.get(1), topping.get(2), 59));
+    pizza.add(new Pizza("2. Vesuvio", topping.get(0),topping.get(1), topping.get(2), 59));
     topping.add(3,"Kødsause");
     topping.add(4,"Løg");
     pizza.add(new Pizza("3. Italiana", topping.get(0),topping.get(1), topping.get(3),topping.get(4), 65));
