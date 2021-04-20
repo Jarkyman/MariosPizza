@@ -6,40 +6,7 @@ import ui.UI;
 import java.util.ArrayList;
 
 public class RegisterMenu {
-<<<<<<< HEAD
-  MainMenu mainMenu = new MainMenu();
   private ArrayList<String> registerMenu = new ArrayList<>();
-
-  public void runRegisterMenu(){
-
-    registerMenu.add("1. Add extra Pizza");
-    registerMenu.add("2. Finish order");
-
-    UI ui = new UI("MENU: ", registerMenu, "PLEASE CHOOSE OPTION: ");
-
-    int choice = 0;
-
-    while(choice != 9){
-      ui.printMenu();
-      choice = ui.readChoice();
-
-      switch(choice){
-        case 1:
-          choosePizza();
-          break;
-        case 2:
-          chooseExtraTopping();
-          break;
-        case 3:
-          addExtraPizza();
-          break;
-        case 4:
-          finishOrder();
-          break;
-        case 9:
-          mainMenu.runMainMenu();
-      }
-=======
 
   private ArrayList<Pizza> pizzaInOrder = new ArrayList<>();
 
@@ -61,7 +28,6 @@ public class RegisterMenu {
       return false;
     } else if (choice == 2) {
       return true;
->>>>>>> a5cf071ae92ce8cf6cc06e0481254c6aaaa5a8be
     }
 
     return true;
@@ -69,7 +35,7 @@ public class RegisterMenu {
 
   public Pizza choosePizza(ArrayList<Pizza> pizzaInMenu) {
 
-    UI ui = new UI(pizzaInMenu, "Choose Pizza: ");
+    UI ui = new UI("Pizzas", pizzaInMenu.stream(), "Choose Pizza: ");
 
     Pizza pizza = pizzaInMenu.get(ui.readChoice() - 1);
 
