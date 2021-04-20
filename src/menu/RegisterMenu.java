@@ -6,8 +6,7 @@ import ui.UI;
 import java.util.ArrayList;
 
 public class RegisterMenu {
-  private UI ui = new UI();
-  private MainMenu mainMenu = new MainMenu();
+
   private ArrayList<Pizza> pizzaInOrder = new ArrayList<>();
 
 
