@@ -27,4 +27,8 @@ public class Carte {
 
   }
 
+  public ArrayList<Pizza> getPizza() {return pizza;}
+
+  public void setPizza(ArrayList<Pizza> pizza) { this.pizza = pizza; }
+
 }

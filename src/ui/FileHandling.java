@@ -7,9 +7,8 @@ import java.util.*;
 
 public class FileHandling {
 
-  public ArrayList<Pizza> savePizzaToFile(String fileName, ArrayList<Pizza> list) {
+  public void savePizzaToFile(String fileName, ArrayList<Pizza> list) {
     File file = new File(fileName);
-    ArrayList<Pizza> pizzaList = new ArrayList<>();
 
     try {
       FileWriter fileWriter = new FileWriter(file);
@@ -17,21 +16,21 @@ public class FileHandling {
 
       for (Pizza p : list) {
         writer.write(p.getName() + "\n");
-        writer.write(p.getToppings().toString() + "\n");
+        writer.write(p.getToppings().toString() + "\n"); //Remove []
         writer.write(p.getPrice() + "\n");
       }
+
+      writer.close();
 
     } catch (IOException e) {
       e.printStackTrace();
     }
 
-    return pizzaList;
   }
 
-  public ArrayList<Pizza> loadPizzaFromFile(String fileName, ArrayList<Pizza> list, ArrayList<String> topping) {
+  public ArrayList<Pizza> loadPizzaFromFile(String fileName) {
     File file = new File(fileName);
     ArrayList<Pizza> pizzaList = new ArrayList<>();
-
 
     try {
       Scanner fileReader = new Scanner(file);
@@ -54,7 +53,7 @@ public class FileHandling {
           name = temp;
 
           temp = fileReader.nextLine();
-          String[] toppingArray = temp.split(",");
+          String[] toppingArray = temp.split(", ");
           Collections.addAll(topping1, toppingArray);
 
           temp = fileReader.nextLine();
@@ -64,6 +63,8 @@ public class FileHandling {
 
         }
       }
+
+      fileReader.close();
 
     }catch (Exception e) {
       e.printStackTrace();

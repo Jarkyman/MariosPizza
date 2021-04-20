@@ -1,0 +1,15 @@
+1. Margherita
+Ost, Tomat
+50.0
+2. Vesuvio
+Ost, Tomat, Skinke
+59.0
+3. Italiana
+Ost, Tomat, Kødsause, Løg
+65.0
+4. SAB
+Ost, Tomat, Kebab, Bernaise
+65.0
+5. Hawaii
+Ost, Tomat, Skinke, Ananas
+65.0
