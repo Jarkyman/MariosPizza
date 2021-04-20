@@ -53,7 +53,6 @@ public class FileHandling {
           temp = fileReader.nextLine();
 
           if (!temp.isEmpty()) {
-
             name = temp;
 
             temp = fileReader.nextLine();
