@@ -1,4 +1,4 @@
-package Orders;
+package orders;
 
 public class Orders {
 }
