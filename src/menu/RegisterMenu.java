@@ -11,6 +11,7 @@ public class RegisterMenu {
   private ArrayList<String> registerMenu = new ArrayList<>();
   private ArrayList<Pizza> pizzaInOrder = new ArrayList<>();
   private Order order = new Order();
+  private UI ui;
 
 
   public void registerPizza(ArrayList<Pizza> pizzasInMenu) {
@@ -83,6 +84,24 @@ public class RegisterMenu {
 
     return pizza;
   }
+
+  public Pizza removePizzas()  {    //Remove pizza(s) from ongoing order
+    ui = new UI();
+    ui.returnMessage("Current order: ");
+    ui.getPizzaList();
+    ui.setOption("Select the pizza you want to remove ");
+
+    int choice = ui.readChoice();
+
+    Pizza pizza = ui.getPizzaList().remove(choice - 1);
+
+    System.out.println(pizza.getName());
+
+   return pizza;
+  }
+
+
+
 
 
   private void chooseTopping() {

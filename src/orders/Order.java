@@ -14,11 +14,14 @@ import java.util.Date;
 
 public class Order {
 
+
+
   //ATTRIBUTES
   private LocalDateTime timeOfOrder = LocalDateTime.now();
   private LocalTime pickUpTime;
   private ArrayList<Pizza> pizzaList = new ArrayList<>();
   private UI ui = new UI();
+
 
 
   private String name;
@@ -45,8 +48,11 @@ public class Order {
     return pizzaList;
   }
 
+
+
   //SETTER
   public void setName(String name){this.name = name;}
+
 
   public void setPickUpTime(LocalTime pickUpTime){this.pickUpTime = pickUpTime;}
 
