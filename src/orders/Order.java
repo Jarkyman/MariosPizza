@@ -2,8 +2,11 @@ package orders;
 
 import carte.Carte;
 import carte.Pizza;
+import ui.UI;
 
 import java.sql.Time;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -11,60 +14,67 @@ import java.util.Date;
 
 public class Order {
 
-  private ArrayList<Order> pizzaOrder = new ArrayList<>();
-  private Date dateOfOrder =  dateWhenOrdered();
-  private  Date timePickUp = timeForPickUp();
-  private boolean isComplete = false;
+  //ATTRIBUTES
+  private LocalDateTime timeOfOrder = LocalDateTime.now();
+  private LocalTime pickUpTime;
+  private ArrayList<Pizza> pizzaList = new ArrayList<>();
+  private UI ui = new UI();
 
 
+  private String name;
 
-  public Date getDateOfOrder() {
-    return dateOfOrder;
+  //CONSTRUCTOR
+  public Order(){}
+
+  public Order(String name, ArrayList<Pizza> pizzaList, LocalTime pickUpTime){
+    setName(name);
+    setPizzaList(pizzaList);
+    setPickUpTime(pickUpTime);
   }
 
-  public Date getTimePickUp() {
-    return timePickUp;
+  //GETTER
+  public String getName(){return name;}
+
+  public LocalDateTime getTimeOfOrder(){
+    return timeOfOrder;
   }
 
-  public boolean isComplete() {
-    return isComplete;
+  public LocalTime getPickUpTime(){return pickUpTime;}
+
+  public ArrayList<Pizza> getPizzaList(){
+    return pizzaList;
   }
 
-  public ArrayList<Order> getPizzaOrder(){
-    return pizzaOrder; }
+  //SETTER
+  public void setName(String name){this.name = name;}
 
+  public void setPickUpTime(LocalTime pickUpTime){this.pickUpTime = pickUpTime;}
 
-  public Date dateWhenOrdered() {
-    Date date = new Date();
-    return date;
+  public void setPizzaList(ArrayList<Pizza> pizzaList){this.pizzaList = pizzaList;}
+
+  //METHODS
+  public void addPizza(Pizza pizza){
+    pizzaList.add(pizza);
   }
 
-  public Date timeForPickUp() {
-    Calendar now = Calendar.getInstance();
-    now.add(Calendar.MINUTE, 20);
-    Date twentyMinutesFromNow = now.getTime();
-    System.out.println(twentyMinutesFromNow);
-    return twentyMinutesFromNow;
+
+  public void removePizza(Pizza pizza){
+    pizzaList.remove(pizza);
   }
 
-  public void addPizzaOrder(Order order) {
-    pizzaOrder.add(order);
+
+  public void choosePickUpTime(Order order) {
+
+    ui.returnMessage("PLEASE CHOOSE A PICK UP TIME: ");
+    ui.returnMessage("HOUR:");
+    int hour = ui.time();
+    ui.returnMessage("MINUTE:");
+    int minute = ui.time();
+
+    order.setPickUpTime(LocalTime.of(hour, minute));
+
+    System.out.println(order.getPickUpTime());
   }
-
-  public void removePizza(Pizza pizza) {
-    pizzaOrder.remove(pizza);
-  }
-
-  public void makeOrder (Pizza pizza, Date dateOfOrder, Date timePickUp, boolean isComplete){
-    // optionally quantity later
-    while (isComplete){
-      pizzaOrder.add(pizza,dateOfOrder,timePickUp);
-
-    }
-  }
-
-  public void becomeComplete() {
-    isComplete = true;}
 
 
 }

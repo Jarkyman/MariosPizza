@@ -51,10 +51,10 @@ public class RegisterMenu {
           ui.viewOrder(order);
           break;
         case 3:
-          removePizzas();
+          //removePizzas();
           break;
         case 4:
-          ChoosePichUpTime();
+          order.choosePickUpTime(order);
         case 5:
           //Save order in file
           break;
