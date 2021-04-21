@@ -84,6 +84,10 @@ public class UI {
     return number;
   }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> f3b035472a26e9f8384d7526680999bdeb17e13a
 
   public void returnMessage(String message){
     System.out.println(message);

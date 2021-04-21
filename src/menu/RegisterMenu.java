@@ -2,6 +2,7 @@ package menu;
 
 import carte.Pizza;
 import orders.Order;
+import ui.FileHandling;
 import ui.UI;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ public class RegisterMenu {
   private ArrayList<Pizza> pizzaInOrder = new ArrayList<>();
   private Order order = new Order();
   private UI ui;
+  private FileHandling fh = new FileHandling();
 
 
   public void registerPizza(ArrayList<Pizza> pizzasInMenu) {
@@ -59,6 +61,7 @@ public class RegisterMenu {
           order.choosePickUpTime(order);
           break;
         case 5:
+          fh.saveOrdersToFile(order);
           //Save order in file
           break;
         default:

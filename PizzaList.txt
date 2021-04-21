@@ -10,7 +10,7 @@ Cheese, Tomato, Meat sauce, Onion
 4. Hawaii
 Cheese, Tomato, Ham, Pineapple
 65.0
-5. Jackie Speciel
+5. Jackie Special
 Cheese, Tomato, Kebab, Pepperoni
 75.0
 6. Capricciosa

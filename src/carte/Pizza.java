@@ -39,5 +39,8 @@ public class Pizza {
     this.price = price;
   }
 
-
+  @Override
+  public String toString() {
+    return "\nPizza " +  name + ", toppings:"   + toppings + ", price: " + price;
+  }
 }

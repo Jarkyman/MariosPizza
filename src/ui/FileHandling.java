@@ -1,5 +1,6 @@
 package ui;
 
+import carte.Carte;
 import carte.Pizza;
 import orders.Order;
 
@@ -10,6 +11,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class FileHandling {
+
+
 
   private final String fileNameOrders = "PizzaInOrder.txt";
   //Order order = new Order();
@@ -89,17 +92,20 @@ public class FileHandling {
 
 
 
-  public void saveOrdersToFile(String fileNameOrders, Order order) {
+  public void saveOrdersToFile(Order order) {
 
     File fileOrders = new File(fileNameOrders);
     try {
-      FileWriter fileWriterOrders = new FileWriter(fileOrders);
-      Writer writerOrders = new BufferedWriter(fileWriterOrders);
-      writerOrders.write(order.getName() + "\n");
-      writerOrders.write(order.getPizzaList() + "\n"); //Remove []
-      writerOrders.write(order.getPickUpTime() + "\n");
-      //  writerOrders.write (order.getTimePickUp() + "\n");
-      writerOrders.close();
+          FileWriter fileWriterOrders = new FileWriter(fileOrders);
+
+        //  Writer writerOrders = new BufferedWriter(fileWriterOrders); //Remove []
+
+          fileWriterOrders.write(order.getName() + "\n");
+          fileWriterOrders.write(order.getPizzaList().toString() + "\n");
+          fileWriterOrders.write(order.getPickUpTime() + "\n");
+
+          fileWriterOrders.close();
+
     } catch (IOException e) {
       e.printStackTrace();
     }
