@@ -32,3 +32,5 @@ public class Carte {
   public void setPizza(ArrayList<Pizza> pizza) { this.pizza = pizza; }
 
 }
+
+
