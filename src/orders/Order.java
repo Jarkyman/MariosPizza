@@ -31,7 +31,7 @@ public class Order {
   }
 
   public ArrayList<Order> getPizzaOrder(){
-    return pizzaOrder;}
+    return pizzaOrder; }
 
 
   public Date dateWhenOrdered() {

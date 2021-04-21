@@ -69,8 +69,6 @@ public class FileHandling {
             pizzaList.add(new Pizza(name, topping1, price));
 
           }
-
-
         }
       }
 
@@ -82,6 +80,7 @@ public class FileHandling {
 
     return pizzaList;
   }
+
 
   public void saveOrdersToFile(String fileNameOrders, ArrayList<Order> pizzaOrder) {
     File fileOrders = new File(fileNameOrders);

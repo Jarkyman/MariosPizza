@@ -29,8 +29,8 @@ public class RegisterMenu {
   private void morePizzaOption() {
     registerMenu.add("1. Add Pizza");
     registerMenu.add("2. View order");
-    //REMOVE PIZZA
-    //CHOOSE PICK UP TIME
+    registerMenu.add("3. Remove pizza");
+    registerMenu.add("4. Choose pick up time");
     registerMenu.add("3. Finish order");
   }
 
@@ -38,7 +38,7 @@ public class RegisterMenu {
 
     int choice = 0;
 
-    while(choice != 3) {
+    while(choice != 5) {
 
       UI ui = new UI("MENU: ", registerMenu, "PLEASE CHOOSE OPTION: ");
       ui.printMenu();
@@ -51,6 +51,11 @@ public class RegisterMenu {
           ui.viewOrder(order);
           break;
         case 3:
+          removePizzas();
+          break;
+        case 4:
+          ChoosePichUpTime();
+        case 5:
           //Save order in file
           break;
         default:
