@@ -5,6 +5,7 @@ import orders.Order;
 import ui.UI;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class RegisterMenu {
 
@@ -91,6 +92,7 @@ public class RegisterMenu {
     ui.returnMessage("Current order: ");
     ui.viewOrder(order);
     ui.setOption("Select the pizza you want to remove ");
+
     int choice = ui.readChoice();
     for (int i = 0; i < order.getPizzaList().size(); i++) {
 
