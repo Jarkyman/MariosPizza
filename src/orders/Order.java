@@ -18,7 +18,7 @@ public class Order {
 
   //ATTRIBUTES
   private LocalDateTime timeOfOrder = LocalDateTime.now();
-  private LocalTime pickUpTime;
+  private LocalDateTime pickUpTime;
   private ArrayList<Pizza> pizzaList = new ArrayList<>();
   private UI ui = new UI();
 
@@ -29,7 +29,7 @@ public class Order {
   //CONSTRUCTOR
   public Order(){}
 
-  public Order(String name, ArrayList<Pizza> pizzaList, LocalTime pickUpTime){
+  public Order(String name, ArrayList<Pizza> pizzaList, LocalDateTime pickUpTime){
     setName(name);
     setPizzaList(pizzaList);
     setPickUpTime(pickUpTime);
@@ -42,7 +42,7 @@ public class Order {
     return timeOfOrder;
   }
 
-  public LocalTime getPickUpTime(){return pickUpTime;}
+  public LocalDateTime getPickUpTime(){return pickUpTime;}
 
   public ArrayList<Pizza> getPizzaList(){
     return pizzaList;
@@ -54,7 +54,7 @@ public class Order {
   public void setName(String name){this.name = name;}
 
 
-  public void setPickUpTime(LocalTime pickUpTime){this.pickUpTime = pickUpTime;}
+  public void setPickUpTime(LocalDateTime pickUpTime){this.pickUpTime = pickUpTime;}
 
   public void setPizzaList(ArrayList<Pizza> pizzaList){this.pizzaList = pizzaList;}
 
@@ -69,16 +69,4 @@ public class Order {
   }
 
 
-  public void choosePickUpTime(Order order) {
-
-    ui.returnMessage("PLEASE CHOOSE A PICK UP TIME: ");
-    ui.returnMessage("HOUR:");
-    int hour = ui.time();
-    ui.returnMessage("MINUTE:");
-    int minute = ui.time();
-
-    order.setPickUpTime(LocalTime.of(hour, minute));
-
-    System.out.println(order.getPickUpTime());
-  }
 }
