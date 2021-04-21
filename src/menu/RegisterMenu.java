@@ -52,7 +52,7 @@ public class RegisterMenu {
           ui.viewOrder(order);
           break;
         case 3:
-          //removePizzas();
+          removePizzas();
           break;
         case 4:
           order.choosePickUpTime(order);
@@ -85,19 +85,25 @@ public class RegisterMenu {
     return pizza;
   }
 
-  public Pizza removePizzas()  {    //Remove pizza(s) from ongoing order
+  public void removePizzas() {    //Remove pizza(s) from ongoing order
     ui = new UI();
     ui.returnMessage("Current order: ");
-    ui.getPizzaList();
+    ui.viewOrder(order);
     ui.setOption("Select the pizza you want to remove ");
-
     int choice = ui.readChoice();
 
-    Pizza pizza = ui.getPizzaList().remove(choice - 1);
+    for (int i = 0; i < order.getPizzaList().size(); i++) {
 
-    System.out.println(pizza.getName());
+      Pizza pizza = order.getPizzaList().remove(choice - 1);
 
-   return pizza;
+      if (order.getPizzaList().remove(pizza)) {
+        order.removePizza(pizza);
+      }
+      ui.viewOrder(order);
+    }
+    //Pizza pizza = ui.getPizzaList().remove(choice - 1);
+    //System.out.println(pizza.getName());
+    //return pizza;
   }
 
 

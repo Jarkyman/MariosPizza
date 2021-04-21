@@ -76,6 +76,11 @@ public class UI {
 
     return choice;
   }
+  public String readLine(){
+    System.out.println(getOption());
+    String number = sc.next();
+    return number;
+  }
 
   public void returnMessage(String message){
     System.out.println(message);
