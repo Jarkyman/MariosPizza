@@ -85,34 +85,16 @@ public class RegisterMenu {
     return pizza;
   }
 
+
   public void removePizzas() {    //Remove pizza(s) from ongoing order
     ui = new UI();
     ui.returnMessage("Current order: ");
     ui.viewOrder(order);
     ui.setOption("Select the pizza you want to remove ");
-<<<<<<< HEAD
-
-    String choice = ui.readLine();
-
-    for (int i = 0; i < order.getPizzaList().size(); i++) {
-      Pizza pizza = order.getPizzaList().get(i);
-      if (order.getPizzaList().get(i).getName().equals(choice)) {
-        order.removePizza(pizza);
-      }
-    }
-
-      //Pizza pizza = ui.getPizzaList().remove(choice - 1);
-
-      //System.out.println(pizza.getName());
-
-      //return pizza;
-=======
     int choice = ui.readChoice();
-
     for (int i = 0; i < order.getPizzaList().size(); i++) {
 
       Pizza pizza = order.getPizzaList().remove(choice - 1);
-
       if (order.getPizzaList().remove(pizza)) {
         order.removePizza(pizza);
       }
@@ -122,14 +104,9 @@ public class RegisterMenu {
     //System.out.println(pizza.getName());
     //return pizza;
   }
->>>>>>> cf2811a8619559ead43e05fde0749c04e16eaa7d
-
-  }
 
 
 
-
-/*
   private void chooseTopping() {
 
     // tilføj topping
@@ -138,7 +115,6 @@ public class RegisterMenu {
 
   }
 
- */
 }
 
 
