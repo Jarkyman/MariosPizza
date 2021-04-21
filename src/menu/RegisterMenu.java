@@ -90,6 +90,7 @@ public class RegisterMenu {
     ui.returnMessage("Current order: ");
     ui.viewOrder(order);
     ui.setOption("Select the pizza you want to remove ");
+<<<<<<< HEAD
 
     String choice = ui.readLine();
 
@@ -105,6 +106,23 @@ public class RegisterMenu {
       //System.out.println(pizza.getName());
 
       //return pizza;
+=======
+    int choice = ui.readChoice();
+
+    for (int i = 0; i < order.getPizzaList().size(); i++) {
+
+      Pizza pizza = order.getPizzaList().remove(choice - 1);
+
+      if (order.getPizzaList().remove(pizza)) {
+        order.removePizza(pizza);
+      }
+      ui.viewOrder(order);
+    }
+    //Pizza pizza = ui.getPizzaList().remove(choice - 1);
+    //System.out.println(pizza.getName());
+    //return pizza;
+  }
+>>>>>>> cf2811a8619559ead43e05fde0749c04e16eaa7d
 
   }
 

@@ -78,6 +78,11 @@ public class UI {
 
     return choice;
   }
+  public String readLine(){
+    System.out.println(getOption());
+    String number = sc.next();
+    return number;
+  }
 
   public String readLine(){
     System.out.println(getOption());
