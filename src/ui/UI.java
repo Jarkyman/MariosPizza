@@ -89,10 +89,18 @@ public class UI {
   }
 
   public void viewOrder(Order order){
-    for(Pizza p : order.getPizzaOrder()){
+    System.out.println(order.getPickUpTime());
+    for(Pizza p : order.getPizzaList()){
      System.out.println(p.getName() + " " + p.getToppings().toString() + " " + p.getPrice());
     }
     System.out.println();
+  }
+
+  public int time(){
+    int choice = sc.nextInt();
+    sc.nextLine();
+
+    return choice;
   }
 
   //RETURN DOUBLE PICK UP TIME
