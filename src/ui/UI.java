@@ -13,7 +13,7 @@ public class UI {
   //ATTRIBUTES
   private String title;
   private ArrayList<String> list = new ArrayList<String>();
-  private ArrayList<Pizza> pizzaList;
+  //private ArrayList<Pizza> pizzaList;
   private String option;
 
 
@@ -43,9 +43,11 @@ public class UI {
     return list;
   }
 
-  public ArrayList<Pizza> getPizzaList(){
+  /*public ArrayList<Pizza> getPizzaList(){
     return pizzaList;
   }
+
+   */
 
   public String getOption(){return option;}
 
@@ -54,7 +56,7 @@ public class UI {
 
   public void setList(ArrayList<String> list){this.list = list;}
 
-  public void setPizzaList(ArrayList<Pizza> pizzaList){this.pizzaList = pizzaList;}
+  //public void setPizzaList(ArrayList<Pizza> pizzaList){this.pizzaList = pizzaList;}
 
   public void setOption(String option){this.option = option;}
 
@@ -75,6 +77,14 @@ public class UI {
     sc.nextLine();
 
     return choice;
+  }
+
+  public String readLine(){
+    System.out.println(getOption());
+
+    String number = sc.next();
+
+    return number;
   }
 
   public void returnMessage(String message){

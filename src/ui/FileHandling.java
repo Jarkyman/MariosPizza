@@ -87,28 +87,21 @@ public class FileHandling {
     return pizzaList;
   }
 
-  public void saveOrdersToFile(String fileNameOrders, Order order) {
+  public void saveOrdersToFile(Order order) {
     File fileOrders = new File(fileNameOrders);
-
     try {
       FileWriter fileWriterOrders = new FileWriter(fileOrders);
       Writer writerOrders = new BufferedWriter(fileWriterOrders);
-
-      for (Order order : orderList) {
-        writerOrders.write(order.getOrderName() + "\n");
-        writerOrders.write(order.getOrderPizzaList().toString() + "\n"); //Remove []
-        writerOrders.write(order.getLocalDateTime + "\n");
-        //  writerOrders.write (order.getTimePickUp() + "\n");
-      }
-
+      writerOrders.write(order.getName() + "\n");
+      writerOrders.write(order.getPizzaList() + "\n"); //Remove []
+      writerOrders.write(order.getPickUpTime() + "\n");
+      //  writerOrders.write (order.getTimePickUp() + "\n");
       writerOrders.close();
-
     } catch (IOException e) {
       e.printStackTrace();
     }
-
   }
-
+/*
   public ArrayList<Order> loadOrdersFromFile(String fileNameOrders) {
 
     File fileOrders = new File(fileNameOrders);
@@ -166,4 +159,6 @@ public class FileHandling {
 
       return orderList;
     }
+
+ */
   }

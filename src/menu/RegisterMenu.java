@@ -52,7 +52,7 @@ public class RegisterMenu {
           ui.viewOrder(order);
           break;
         case 3:
-          //removePizzas();
+          removePizzas();
           break;
         case 4:
           order.choosePickUpTime(order);
@@ -70,7 +70,7 @@ public class RegisterMenu {
 
   public Pizza choosePizza(ArrayList<Pizza> pizzaInMenu) {
 
-    UI ui = new UI();
+    ui = new UI();
     ui.returnMessage("MENU: ");
     ui.showPizzaMenu(pizzaInMenu);
     ui.setOption("PLEASE CHOOSE AN OPTION: ");
@@ -85,25 +85,33 @@ public class RegisterMenu {
     return pizza;
   }
 
-  public Pizza removePizzas()  {    //Remove pizza(s) from ongoing order
+  public void removePizzas() {    //Remove pizza(s) from ongoing order
     ui = new UI();
     ui.returnMessage("Current order: ");
-    ui.getPizzaList();
+    ui.viewOrder(order);
     ui.setOption("Select the pizza you want to remove ");
 
-    int choice = ui.readChoice();
+    String choice = ui.readLine();
 
-    Pizza pizza = ui.getPizzaList().remove(choice - 1);
+    for (int i = 0; i < order.getPizzaList().size(); i++) {
+      Pizza pizza = order.getPizzaList().get(i);
+      if (order.getPizzaList().get(i).getName().equals(choice)) {
+        order.removePizza(pizza);
+      }
+    }
 
-    System.out.println(pizza.getName());
+      //Pizza pizza = ui.getPizzaList().remove(choice - 1);
 
-   return pizza;
+      //System.out.println(pizza.getName());
+
+      //return pizza;
+
   }
 
 
 
 
-
+/*
   private void chooseTopping() {
 
     // tilføj topping
@@ -111,6 +119,8 @@ public class RegisterMenu {
     // + ekstra pris
 
   }
+
+ */
 }
 
 
