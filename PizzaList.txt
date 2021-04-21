@@ -7,60 +7,54 @@ Cheese, Tomato, Ham
 3. Italiana
 Cheese, Tomato, Meat sauce, Onion
 65.0
-4. SAB
-Cheese, Tomato, Kebab, Bernaise sause
-65.0
-5. Hawaii
+4. Hawaii
 Cheese, Tomato, Ham, Pineapple
 65.0
-6. Jackie Speciel
+5. Jackie Speciel
 Cheese, Tomato, Kebab, Pepperoni
 75.0
-7. Capricciosa
+6. Capricciosa
 Cheese, Tomato, Ham, Mushrooms
 65.0
-8. Oriental
+7. Oriental
 Tomato, Cheese, Ground beef, Chili
 65.0
-9. Torino
+8. Torino
 Tomato, Cheese, Meat strips, Mushrooms, Onion
 75.0
-10. Toskana
+9. Toskana
 Cheese, Tomato, Ham, Bacon
 65.0
-11. Chicken
+10. Chicken
 Tomato, Cheese, Curry chicken, Bacon
 65.0
-12. Pepperoni
+11. Pepperoni
 Cheese, Tomato, Ham, Pepperoni
 65.0
-13. O sole mio
+12. O sole mio
 Tomato, Cheese, Tuna, Mushrooms
 69.0
-14. Vegetariana
+13. Vegetariana
 Tomato, Cheese, Mushrooms, Paprika, Onion
 65.0
-15. Mexicana
+14. Mexicana
 Tomato, Cheese, Ground beef, Mushrooms, Chili, Paprika
 69.0
-16. Mario special
+15. Mario special
 Tomato, Cheese, Kebab, Curry chicken, Ham, Pepperoni, Bacon, Ground beef
 95.0
-17. Sicillano
+16. Sicillano
 Cheese, Tomato, Sausages, Bacon, Eggs, Paprika
 69
-16. Mama mia
+17. Mama mia
 Tomato, Cheese, Meat strips, Pepperoni, Bacon, Garlic, Chili
 85.0
-17. Acapulco
-Tomato, Cheese, Kebab, Onion, Jalapeño
+18. Acapulco
+Tomato, Cheese, Kebab, Onion, Jalapeños
 70.0
-18. Diego
+19. Diego
 Tomato, Cheese, Kebab, Mushrooms, Chili
 65.0
-19. Kansas
-Tomato, Cheese, Ham, Mushrooms, Bacon, Onion, Cocktail sausages
-85.0
 20. House pizza
 Tomato, Cheese, Kebab, Mushrooms, Paprika, Onion
 69.0
@@ -94,4 +88,3 @@ Tomato, Cheese, Chicken, Pineapple, Mushrooms, Red pepper, Oregano
 30. Verona
 Tomato, Cheese, Artichoke, Mushrooms, Pesto, Sun-dried tomato, Fresh parmesan, Oregano
 105.0
-
