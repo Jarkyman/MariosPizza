@@ -11,7 +11,7 @@ import java.util.Date;
 
 public class Order {
 
-  private ArrayList<Order> pizzaOrder = new ArrayList<>();
+  private ArrayList<Pizza> pizzaList = new ArrayList<>();
   private Date dateOfOrder =  dateWhenOrdered();
   private  Date timePickUp = timeForPickUp();
   private boolean isComplete = false;
@@ -30,8 +30,8 @@ public class Order {
     return isComplete;
   }
 
-  public ArrayList<Order> getPizzaOrder(){
-    return pizzaOrder; }
+  public ArrayList<Pizza> getPizzaList(){
+    return pizzaList; }
 
 
   public Date dateWhenOrdered() {
