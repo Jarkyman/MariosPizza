@@ -92,7 +92,10 @@ public class UI {
     for(Pizza p : order.getPizzaOrder()){
      System.out.println(p.getName() + " " + p.getToppings().toString() + " " + p.getPrice());
     }
+    System.out.println();
   }
+
+  //RETURN DOUBLE PICK UP TIME
 
   public void viewStatistics(){}
 

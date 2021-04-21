@@ -18,6 +18,7 @@ public class RegisterMenu {
     boolean quit = false;
 
     while (!quit) {
+
       order.addPizza(choosePizza(pizzasInMenu));
 
       quit = morePizza();
@@ -28,23 +29,33 @@ public class RegisterMenu {
   private void morePizzaOption() {
     registerMenu.add("1. Add Pizza");
     registerMenu.add("2. View order");
+    //REMOVE PIZZA
+    //CHOOSE PICK UP TIME
     registerMenu.add("3. Finish order");
   }
 
   private boolean morePizza() {
 
-    UI ui = new UI("MENU: ", registerMenu, "PLEASE CHOOSE OPTION: ");
-    ui.printMenu();
-    int choice = ui.readChoice();
+    int choice = 0;
 
-    if (choice == 1) {
-      return false;
-    } else if (choice == 2) {
-      ui.viewOrder(order);
-      return false;
-    } else if(choice == 3){
-      //Save order in file
-      return true;
+    while(choice != 3) {
+
+      UI ui = new UI("MENU: ", registerMenu, "PLEASE CHOOSE OPTION: ");
+      ui.printMenu();
+      choice = ui.readChoice();
+
+      switch (choice) {
+        case 1:
+          return false;
+        case 2:
+          ui.viewOrder(order);
+          break;
+        case 3:
+          //Save order in file
+          break;
+        default:
+          ui.returnMessage("NOT A VALID INPUT");
+      }
     }
 
     return true;
@@ -62,13 +73,13 @@ public class RegisterMenu {
     Pizza pizza = pizzaInMenu.get(choice - 1);
 
     System.out.println(pizza.getName());
-    //chooseToping();
+    //chooseTopping();
 
     return pizza;
   }
 
 
-  private void chooseToping() {
+  private void chooseTopping() {
 
     // tilføj topping
 
