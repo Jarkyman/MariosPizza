@@ -55,6 +55,7 @@ public class RegisterMenu {
           break;
         case 4:
           order.choosePickUpTime(order);
+          break;
         case 5:
           //Save order in file
           break;
