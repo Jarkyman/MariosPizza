@@ -107,7 +107,15 @@ public class UI {
     System.out.println();
   }
 
+<<<<<<< HEAD
+
+
+  public int time(){
+    int choice = sc.nextInt();
+    sc.nextLine();
+=======
   public LocalDate date(){
+>>>>>>> b434630d61ed206b40d832f8b16ce288b549ca25
 
     System.out.println("Enter date (dd-mm-yyyy): ");
     String input = sc.nextLine();

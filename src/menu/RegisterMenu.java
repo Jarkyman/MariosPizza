@@ -63,7 +63,7 @@ public class RegisterMenu {
           choosePickUpTime(order);
           break;
         case 5:
-          fh.saveOrdersToFile(order);
+          fh.saveOrdersToFile(order,order.getOrders());
           //Save order in file
           break;
         default:
