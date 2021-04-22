@@ -6,6 +6,7 @@ import orders.Order;
 
 import java.io.*;
 import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -109,7 +110,7 @@ public class FileHandling {
  */
         writerOrders.write(orders.get(i).getOrderNumber() + "\n");
         writerOrders.write(orders.get(i).getName() + "\n");
-        writerOrders.write(orders.get(i).getPizzaList().toString().replaceAll("\\[", "").
+        writerOrders.write(orders.get(i).getPizzaNames().toString().replaceAll("\\[", "").
             replaceAll("]", "") + "\n");
         writerOrders.write(orders.get(i).getPickUpTime() + "\n");
 
@@ -147,7 +148,8 @@ public class FileHandling {
           String temp;
           int orderNr;
           String orderName;
-          ArrayList<Pizza> pizzaInOrder = new ArrayList<>();
+//          ArrayList<Pizza> pizzaInOrder = new ArrayList<>();
+          ArrayList<String> pizzaInOrder = new ArrayList<>();
           String dateTimeOrder;
           temp = fileReaderOrders.nextLine();
 
@@ -156,12 +158,15 @@ public class FileHandling {
             temp = fileReaderOrders.nextLine();
             orderName = temp;
 
+            temp = fileReaderOrders.nextLine();
             String [] pizzaArray = temp.split(", ");
             Collections.addAll(pizzaInOrder, pizzaArray);
 
             temp = fileReaderOrders.nextLine();
             //dateTimeOrder = "2018-07-14T17:45";
-            DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
+            temp = temp.replaceAll("T", " ");
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm");
 
             LocalDateTime dateTime = LocalDateTime.parse(temp, formatter);
             orderList.add(new Order(orderNr,orderName, pizzaInOrder, dateTime));

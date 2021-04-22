@@ -108,8 +108,9 @@ public class UI {
     System.out.println("Pizzas: ");
     int count = 1;
 
-    for(Pizza p : order.getPizzaList()){
-     System.out.println((count++) + ". " + p.getName() + " " + p.getToppings().toString() + " " + p.getPrice());
+    for(String n : order.getPizzaNames()){
+      System.out.println(count++ + ". " + n);
+//     System.out.println((count++) + ". " + n.getName() + " " + n.getToppings().toString() + " " + n.getPrice());
 
     }
     System.out.println();
@@ -118,12 +119,12 @@ public class UI {
   public void viewOrders(ArrayList<Order> orders){
     for(Order o : orders){
       System.out.println("Order number: " + o.getOrderNumber() + "\nCostumers name: " + o.getName() +
-          "\nPick up time: " + o.getPickUpTime() + "\n Order: " + o.getPizzaList());
+          "\nPick up time: " + o.getPickUpTime() + "\n Order: " + o.getPizzaNames());
     }
 
   }
 
-  public String name(){
+  public String name() {
     System.out.println("Enter name of costumer: ");
     String name = sc.nextLine();
 
@@ -155,6 +156,15 @@ public class UI {
     System.out.println(time);
     return time;
   }
+
+  /*public LocalDateTime dateTime(){
+    System.out.println("PLEASE CHOOSE A PICK UP TIME (dd-mm-yyyy hh:mm): ");
+    String input = sc.nextLine();
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+    LocalDateTime dateTime = LocalDateTime.parse(input, formatter);
+    System.out.println(dateTime);
+    return dateTime;
+  }*/
 
 
   public void viewStatistics(){}
