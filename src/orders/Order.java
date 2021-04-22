@@ -2,6 +2,7 @@ package orders;
 
 import carte.Carte;
 import carte.Pizza;
+import menu.RegisterMenu;
 import ui.UI;
 
 import java.sql.Time;
@@ -31,6 +32,13 @@ public class Order {
 
 
   public Order(String name, ArrayList<Pizza> pizzaList, LocalDateTime pickUpTime){
+    setName(name);
+    setPizzaList(pizzaList);
+    setPickUpTime(pickUpTime);
+  }
+
+  public Order(int orderNumber, String name, ArrayList<Pizza> pizzaList, LocalDateTime pickUpTime){
+    setOrderNumber(orderNumber);
     setName(name);
     setPizzaList(pizzaList);
     setPickUpTime(pickUpTime);
@@ -98,11 +106,6 @@ public class Order {
     ui.viewOrder(order);
 
   }
-
-  public void orderNumber(){
-
-  }
-
 
 
 
