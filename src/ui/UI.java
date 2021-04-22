@@ -6,6 +6,7 @@ import orders.Order;
 import javax.sound.midi.Soundbank;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -141,6 +142,7 @@ public class UI {
 
     System.out.println(date);
     return date;
+
   }
 
   public LocalTime time() {
@@ -154,6 +156,18 @@ public class UI {
 
     System.out.println(time);
     return time;
+  }
+
+  public LocalDateTime dateTime(){
+    System.out.println("PLEASE CHOOSE A PICK UP TIME (dd-mm-yyyy hh:mm): ");
+
+    String input = sc.nextLine();
+
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+    LocalDateTime dateTime = LocalDateTime.parse(input, formatter);
+
+    System.out.println(dateTime);
+    return dateTime;
   }
 
 

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 1
 null
 Margherita
@@ -11,5 +10,3 @@ Hawaii
 Cheese, Tomato, Ham, Pineapple
 65.0
 null
-=======
->>>>>>> 2f675e202da62224201953bf6ede31015c87415d
