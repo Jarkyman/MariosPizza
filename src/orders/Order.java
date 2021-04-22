@@ -15,56 +15,84 @@ import java.util.Date;
 public class Order {
 
 
-
   //ATTRIBUTES
   private LocalDateTime timeOfOrder = LocalDateTime.now();
   private LocalTime pickUpTime;
   private ArrayList<Pizza> pizzaList = new ArrayList<>();
   private UI ui = new UI();
 
-
+  private ArrayList<Order> orders = new ArrayList<>();
+  private int orderNumber;
 
   private String name;
 
-  //CONSTRUCTOR
-  public Order(){}
 
-  public Order(String name, ArrayList<Pizza> pizzaList, LocalTime pickUpTime){
+  //CONSTRUCTOR
+  public Order() {
+  }
+
+  public Order(int orderNumber, String name, ArrayList<Pizza> pizzaList, LocalTime pickUpTime) {
+    setOrderNumber(orderNumber);
     setName(name);
     setPizzaList(pizzaList);
     setPickUpTime(pickUpTime);
   }
 
   //GETTER
-  public String getName(){return name;}
+  public String getName() {
+    return name;
+  }
 
-  public LocalDateTime getTimeOfOrder(){
+  public LocalDateTime getTimeOfOrder() {
     return timeOfOrder;
   }
 
-  public LocalTime getPickUpTime(){return pickUpTime;}
+  public LocalTime getPickUpTime() {
+    return pickUpTime;
+  }
 
-  public ArrayList<Pizza> getPizzaList(){
+  public ArrayList<Pizza> getPizzaList() {
     return pizzaList;
   }
 
+  public ArrayList<Order> getOrders() {
+    return orders;
+  }
+
+  public int getOrderNumber() {
+    return orderNumber + 1;
+  }
 
 
   //SETTER
-  public void setName(String name){this.name = name;}
+  public void setName(String name) {
+    this.name = name;
+  }
 
+  public void setPickUpTime(LocalTime pickUpTime) {
+    this.pickUpTime = pickUpTime;
+  }
 
-  public void setPickUpTime(LocalTime pickUpTime){this.pickUpTime = pickUpTime;}
+  public void setPizzaList(ArrayList<Pizza> pizzaList) {
+    this.pizzaList = pizzaList;
+  }
 
-  public void setPizzaList(ArrayList<Pizza> pizzaList){this.pizzaList = pizzaList;}
+  public void setOrders(ArrayList<Order> orders) {
+    this.orders = orders;
+  }
+
+  public void setOrderNumber(int orderNumber) {
+    this.orderNumber = orderNumber;
+  }
+
 
   //METHODS
-  public void addPizza(Pizza pizza){
+  public void addPizza(Pizza pizza) {
     pizzaList.add(pizza);
   }
 
 
-  public void removePizza(Pizza pizza){
+  public void removePizza(Pizza pizza) {
     pizzaList.remove(pizza);
   }
 
@@ -81,4 +109,10 @@ public class Order {
 
     System.out.println(order.getPickUpTime());
   }
+
+
+  public void saveOrderToArray(Order order) {
+    orders.add(order);
+  }
+
 }
