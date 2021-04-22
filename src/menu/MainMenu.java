@@ -21,6 +21,8 @@ public class MainMenu {
   public void runMainMenu(){
 
     carte.setPizza(fh.loadPizzaFromFile("PizzaList.txt"));
+    rm.setOrders(fh.loadOrdersFromFile("OrderList.txt"));
+
 
     mainMenu.add("1. Show Pizza Menu");
     mainMenu.add("2. Register order");

@@ -13,7 +13,6 @@ import java.util.ArrayList;
 public class RegisterMenu {
 
   //private ArrayList<String> registerMenu = new ArrayList<>();
-  private ArrayList<Pizza> pizzaInOrder = new ArrayList<>();
   private Order order;
   private UI ui;
   private FileHandling fh = new FileHandling();
@@ -32,18 +31,25 @@ public class RegisterMenu {
     registerMenu.add("1. Add Pizza");
     registerMenu.add("2. View order");
     registerMenu.add("3. Remove pizza");
-    registerMenu.add("4. Choose pick up time");
-    registerMenu.add("5. Finish order");
+    registerMenu.add("4. Change pick up time");
+    registerMenu.add("5. Change name");
+    registerMenu.add("6. Finish order");
     return registerMenu;
   }
 
 
   public void registerOrder(ArrayList<Pizza> pizzasInMenu) {
     order = new Order();
+    order.addPizza(choosePizza(pizzasInMenu).getName());
+    order.setName(ui.name());
+    choosePickUpTime(order);
+
 
     int choice = 0;
 
-    while(choice != 5) {
+    //choosePickUpTime(order);
+
+    while(choice != 6) {
 
       UI ui = new UI("MENU: ", menuOption(), "PLEASE CHOOSE OPTION: ");
       ui.printMenu();
@@ -51,7 +57,8 @@ public class RegisterMenu {
 
       switch (choice) {
         case 1:
-          order.addPizza(choosePizza(pizzasInMenu));
+//          order.addPizza(choosePizza(pizzasInMenu));
+          order.addPizza(choosePizza(pizzasInMenu).getName());
           break;
         case 2:
           ui.viewOrder(order);
@@ -60,13 +67,15 @@ public class RegisterMenu {
           order.removePizza(order);
           break;
         case 4:
-          giveName(order);
           choosePickUpTime(order);
 
          // order.setOrderNumber(orders.size() + 1);
          // order.setOrderNumber(orders.indexOf(order));
           break;
         case 5:
+          giveName(order);
+          break;
+        case 6:
           saveOrderToArray(order);
           fh.saveOrdersToFile("OrderList.txt", orders);
           //Save order in file

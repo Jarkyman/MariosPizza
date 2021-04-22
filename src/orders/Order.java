@@ -20,6 +20,7 @@ public class Order {
   private LocalDateTime timeOfOrder = LocalDateTime.now();
   private LocalDateTime pickUpTime;
   private ArrayList<Pizza> pizzaList = new ArrayList<>();
+  private ArrayList<String> pizzaNames = new ArrayList<>();
   private UI ui = new UI();
 
   private int orderNumber;
@@ -31,16 +32,16 @@ public class Order {
   }
 
 
-  public Order(String name, ArrayList<Pizza> pizzaList, LocalDateTime pickUpTime){
+  public Order(String name, ArrayList<String> pizzaList, LocalDateTime pickUpTime){
     setName(name);
-    setPizzaList(pizzaList);
+    setPizzaNames(pizzaList);
     setPickUpTime(pickUpTime);
   }
 
-  public Order(int orderNumber, String name, ArrayList<Pizza> pizzaList, LocalDateTime pickUpTime){
+  public Order(int orderNumber, String name, ArrayList<String> pizzaList, LocalDateTime pickUpTime){
     setOrderNumber(orderNumber);
     setName(name);
-    setPizzaList(pizzaList);
+    setPizzaNames(pizzaNames);
     setPickUpTime(pickUpTime);
   }
 
@@ -55,9 +56,10 @@ public class Order {
   }
 
 
-  public ArrayList<Pizza> getPizzaList() {
-    return pizzaList;
-  }
+//  public ArrayList<Pizza> getPizzaList() {
+//    return pizzaList;
+//  }
+  public ArrayList<String> getPizzaNames() {return pizzaNames; }
 
   //public ArrayList<Order> getOrders() {return orders;}
 
@@ -75,6 +77,7 @@ public class Order {
   public void setPizzaList(ArrayList<Pizza> pizzaList) {
     this.pizzaList = pizzaList;
   }
+  public void setPizzaNames(ArrayList<String> pizzaNames) { this.pizzaNames = pizzaNames; }
 
   //public void setOrders(ArrayList<Order> orders) {this.orders = orders;}
 
@@ -90,9 +93,11 @@ public class Order {
 
 
   //METHODS
-  public void addPizza(Pizza pizza) {
+  /*public void addPizza(Pizza pizza) {
     pizzaList.add(pizza);
-  }
+  }*/
+
+  public void addPizza(String pizzaName) {pizzaNames.add(pizzaName);}
 
   public void removePizza(Order order) {    //Remove pizza(s) from ongoing order
     ui = new UI();
@@ -102,7 +107,7 @@ public class Order {
 
     int choice = ui.readChoice();
 
-    order.getPizzaList().remove((choice)-1);
+    order.getPizzaNames().remove((choice)-1);
     ui.viewOrder(order);
 
   }

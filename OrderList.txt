@@ -1,4 +1,5 @@
 1
+<<<<<<< HEAD
 null
 Margherita
 Cheese, Tomato, Oregano
@@ -10,3 +11,16 @@ Hawaii
 Cheese, Tomato, Ham, Pineapple
 65.0
 null
+=======
+Jack
+Diego, Capricciosa
+2020-12-12T12:12
+2
+Hans
+Diego, Capricciosa
+2020-12-12T12:12
+3
+Ole
+Diego, Capricciosa
+2020-12-12T12:12
+>>>>>>> 771bbf83a06c653b8be559168cb76d8c207fd733
