@@ -115,7 +115,13 @@ public class UI {
     System.out.println();
   }
 
-  public void viewOrders(ArrayList<Order> orders){}
+  public void viewOrders(ArrayList<Order> orders){
+    for(Order o : orders){
+      System.out.println("Order number: " + o.getOrderNumber() + "\nCostumers name: " + o.getName() +
+          "\nPick up time: " + o.getPickUpTime() + "\n Order: " + o.getPizzaList());
+    }
+
+  }
 
   public String name(){
     System.out.println("Enter name of costumer: ");

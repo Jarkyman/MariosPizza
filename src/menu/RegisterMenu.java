@@ -23,6 +23,10 @@ public class RegisterMenu {
     return orders;
   }
 
+  public ArrayList<Order> getOrders(){return orders;}
+
+  public void setOrders (ArrayList<Order> orders){this.orders = orders;}
+
   public ArrayList<String> menuOption() {
     ArrayList<String> registerMenu = new ArrayList<>();
     registerMenu.add("1. Add Pizza");
