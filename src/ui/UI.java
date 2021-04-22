@@ -82,7 +82,7 @@ public class UI {
     return choice;
   }
   public String readLine(){
-    System.out.println(getOption());
+    //System.out.println(getOption());
     String number = sc.next();
     return number;
   }
@@ -93,19 +93,29 @@ public class UI {
 
 
   public void showPizzaMenu(ArrayList<Pizza> pizzaList){
-    for(Pizza p : pizzaList){
-      System.out.println(p.getName() +" "+ p.getToppings().toString() +" "+ p.getPrice());
+    for(int i = 0; i < pizzaList.size(); i++){
+      System.out.println((i + 1) + "" + pizzaList.get(i).printToFile());
+/*
+      System.out.println(pizzaList.get(i) + pizzaList.get(i).getName() +" "+
+          pizzaList.get(i).getToppings().toString() +" "+ pizzaList.get(i).getPrice());
+
+ */
     }
   }
 
   public void viewOrder(Order order){
     System.out.println("PICK UP TIME: " + order.getPickUpTime());
     System.out.println("Pizzas: ");
+    int count = 1;
+
     for(Pizza p : order.getPizzaList()){
-     System.out.println(p.getName() + " " + p.getToppings().toString() + " " + p.getPrice());
+     System.out.println((count++) + ". " + p.getName() + " " + p.getToppings().toString() + " " + p.getPrice());
+
     }
     System.out.println();
   }
+
+  public void viewOrders(ArrayList<Order> orders){}
 
 
   public LocalDate date(){

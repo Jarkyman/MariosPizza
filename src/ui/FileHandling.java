@@ -12,8 +12,6 @@ import java.util.*;
 
 public class FileHandling {
 
-
-  private final String fileNameOrders = "PizzaInOrder.txt";
   //Order order = new Order();
 
 
@@ -90,20 +88,36 @@ public class FileHandling {
   }
 
 
-  public void saveOrdersToFile(Order order, ArrayList<Order> orders) {
+  public void saveOrdersToFile(String fileName, Order order, ArrayList<Order> orders) {
 
-    File fileOrders = new File(fileNameOrders);
+    //private final String fileNameOrders = "PizzaInOrder.txt";
+
+    File fileOrders = new File(fileName);
     try {
       FileWriter fileWriterOrders = new FileWriter(fileOrders);
       Writer writerOrders = new BufferedWriter(fileWriterOrders); //Remove []
 
+
       for (int i = 0; i <= orders.size(); i++) {
+
         writerOrders.write(order.getOrderNumber() + "\n");
         writerOrders.write(order.getName() + "\n");
         writerOrders.write(order.getPizzaList().toString().replaceAll("\\[", "").
             replaceAll("]", "") + "\n");
         writerOrders.write(order.getPickUpTime() + "\n");
+
+
+/*
+        writerOrders.write(orders.get(i).getOrderNumber() + "\n");
+        writerOrders.write(orders.get(i).getName() + "\n");
+        writerOrders.write(orders.get(i).getPizzaList().toString().replaceAll("\\[", "").
+            replaceAll("]", "") + "\n");
+        writerOrders.write(orders.get(i).getPickUpTime() + "\n");
+
+ */
+
       }
+
       writerOrders.close();
 
     } catch (IOException e) {

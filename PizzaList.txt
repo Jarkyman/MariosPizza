@@ -1,90 +1,90 @@
-1. Margherita
+Margherita
 Cheese, Tomato, Oregano
 55.0
-2. Vesuvio
+Vesuvio
 Cheese, Tomato, Ham
 59.0
-3. Italiana
+Italiana
 Cheese, Tomato, Meat sauce, Onion
 65.0
-4. Hawaii
+Hawaii
 Cheese, Tomato, Ham, Pineapple
 65.0
-5. Jackie Special
+Jackie Special
 Cheese, Tomato, Kebab, Pepperoni
 75.0
-6. Capricciosa
+Capricciosa
 Cheese, Tomato, Ham, Mushrooms
 65.0
-7. Oriental
+Oriental
 Tomato, Cheese, Ground beef, Chili
 65.0
-8. Torino
+Torino
 Tomato, Cheese, Meat strips, Mushrooms, Onion
 75.0
-9. Toskana
+Toskana
 Cheese, Tomato, Ham, Bacon
 65.0
-10. Chicken
+Chicken
 Tomato, Cheese, Curry chicken, Bacon
 65.0
-11. Pepperoni
+Pepperoni
 Cheese, Tomato, Ham, Pepperoni
 65.0
-12. O sole mio
+O sole mio
 Tomato, Cheese, Tuna, Mushrooms
 69.0
-13. Vegetariana
+Vegetariana
 Tomato, Cheese, Mushrooms, Paprika, Onion
 65.0
-14. Mexicana
+Mexicana
 Tomato, Cheese, Ground beef, Mushrooms, Chili, Paprika
 69.0
-15. Mario special
+Mario special
 Tomato, Cheese, Kebab, Curry chicken, Ham, Pepperoni, Bacon, Ground beef
 95.0
-16. Sicillano
+Sicillano
 Cheese, Tomato, Sausages, Bacon, Eggs, Paprika
 69
-17. Mama mia
+Mama mia
 Tomato, Cheese, Meat strips, Pepperoni, Bacon, Garlic, Chili
 85.0
-18. Acapulco
+Acapulco
 Tomato, Cheese, Kebab, Onion, Jalapeños
 70.0
-19. Diego
+Diego
 Tomato, Cheese, Kebab, Mushrooms, Chili
 65.0
-20. House pizza
+House pizza
 Tomato, Cheese, Kebab, Mushrooms, Paprika, Onion
 69.0
-21. Gorgonzola
+Gorgonzola
 Tomato, Cheese, Beef tenderloin, Gorgonzola, Oregano
 95.0
-22. Prosciutto Crudo
+Prosciutto Crudo
 Tomato, Cheese, Mushrooms, Parmaham, Rucula, Oregano
 85.0
-23. Caprese
+Caprese
 Cheese, Salt, Fresh mozarella, Fresh tomato, Basil, Oregano
 85.0
-24. Pescatore
+Pescatore
 Tomato, Cheese, Tuna, Shrimps, Mussels, Oregano
 85.0
-25. Salami
+Salami
 Tomato, Cheese, Salami, Oregano
 80.0
-26. Calzone
+Calzone
 Tomato, Cheese, Ham, Mushrooms, Ground beef, Oregano
 87.0
-27. Salmone
+Salmone
 Tomato, Cheese, Salmone, Spinachi, Onion, Fresh mozzarella
 83.0
-28. Venezia
+Venezia
 Tomato, Cheese, Ham, Mushrooms, Tuna, Shrimps, Oregano
 85.0
-29. Al Pollo
+Al Pollo
 Tomato, Cheese, Chicken, Pineapple, Mushrooms, Red pepper, Oregano
 88.0
-30. Verona
+Verona
 Tomato, Cheese, Artichoke, Mushrooms, Pesto, Sun-dried tomato, Fresh parmesan, Oregano
 105.0
