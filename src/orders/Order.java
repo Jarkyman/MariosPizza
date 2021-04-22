@@ -21,7 +21,6 @@ public class Order {
   private ArrayList<Pizza> pizzaList = new ArrayList<>();
   private UI ui = new UI();
 
-  //private ArrayList<Order> orders = new ArrayList<>();
   private int orderNumber;
   private String name;
 
