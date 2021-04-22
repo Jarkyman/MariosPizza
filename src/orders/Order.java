@@ -23,7 +23,6 @@ public class Order {
 
   private ArrayList<Order> orders = new ArrayList<>();
   private int orderNumber;
-
   private String name;
 
 
@@ -31,12 +30,9 @@ public class Order {
   public Order() {
   }
 
-<<<<<<< HEAD
-  public Order(int orderNumber, String name, ArrayList<Pizza> pizzaList, LocalTime pickUpTime) {
-    setOrderNumber(orderNumber);
-=======
+
   public Order(String name, ArrayList<Pizza> pizzaList, LocalDateTime pickUpTime){
->>>>>>> b434630d61ed206b40d832f8b16ce288b549ca25
+
     setName(name);
     setPizzaList(pizzaList);
     setPickUpTime(pickUpTime);
@@ -47,17 +43,11 @@ public class Order {
     return name;
   }
 
-  public LocalDateTime getTimeOfOrder() {
-    return timeOfOrder;
-  }
 
-<<<<<<< HEAD
-  public LocalTime getPickUpTime() {
+  public LocalDateTime getPickUpTime() {
     return pickUpTime;
   }
-=======
-  public LocalDateTime getPickUpTime(){return pickUpTime;}
->>>>>>> b434630d61ed206b40d832f8b16ce288b549ca25
+
 
   public ArrayList<Pizza> getPizzaList() {
     return pizzaList;
@@ -77,9 +67,6 @@ public class Order {
     this.name = name;
   }
 
-  public void setPickUpTime(LocalTime pickUpTime) {
-    this.pickUpTime = pickUpTime;
-  }
 
   public void setPizzaList(ArrayList<Pizza> pizzaList) {
     this.pizzaList = pizzaList;
@@ -89,13 +76,13 @@ public class Order {
     this.orders = orders;
   }
 
-<<<<<<< HEAD
+
   public void setOrderNumber(int orderNumber) {
     this.orderNumber = orderNumber;
   }
-=======
+
   public void setPickUpTime(LocalDateTime pickUpTime){this.pickUpTime = pickUpTime;}
->>>>>>> b434630d61ed206b40d832f8b16ce288b549ca25
+
 
 
   //METHODS
@@ -109,25 +96,10 @@ public class Order {
   }
 
 
-<<<<<<< HEAD
-  public void choosePickUpTime(Order order) {
-
-    ui.returnMessage("PLEASE CHOOSE A PICK UP TIME: ");
-    ui.returnMessage("HOUR:");
-    int hour = ui.time();
-    ui.returnMessage("MINUTE:");
-    int minute = ui.time();
-
-    order.setPickUpTime(LocalTime.of(hour, minute));
-
-    System.out.println(order.getPickUpTime());
-  }
-
 
   public void saveOrderToArray(Order order) {
     orders.add(order);
   }
 
-=======
->>>>>>> b434630d61ed206b40d832f8b16ce288b549ca25
+
 }
