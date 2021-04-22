@@ -41,6 +41,10 @@ public class Pizza {
 
   @Override
   public String toString() {
-    return "Pizza " +  name + ", toppings:"   + toppings + ", price: " + price + "\n";
+    return name + "\n" + toppings + "\n" + price;
+  }
+
+  public String printToFile(){
+    return ". " +  name + ", toppings:"   + toppings + ", price: " + price;
   }
 }

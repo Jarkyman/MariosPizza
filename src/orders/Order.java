@@ -32,7 +32,6 @@ public class Order {
 
 
   public Order(String name, ArrayList<Pizza> pizzaList, LocalDateTime pickUpTime){
-
     setName(name);
     setPizzaList(pizzaList);
     setPickUpTime(pickUpTime);
@@ -81,7 +80,9 @@ public class Order {
     this.orderNumber = orderNumber;
   }
 
-  public void setPickUpTime(LocalDateTime pickUpTime){this.pickUpTime = pickUpTime;}
+  public void setPickUpTime(LocalDateTime pickUpTime){
+    this.pickUpTime = pickUpTime;
+  }
 
 
 
@@ -90,10 +91,19 @@ public class Order {
     pizzaList.add(pizza);
   }
 
+  public void removePizza(Order order) {    //Remove pizza(s) from ongoing order
+    ui = new UI();
+    ui.returnMessage("Current order: ");
+    ui.viewOrder(order);
+    ui.setOption("Select the pizza you want to remove ");
 
-  public void removePizza(Pizza pizza) {
-    pizzaList.remove(pizza);
+    int choice = ui.readChoice();
+
+    order.getPizzaList().remove((choice)-1);
+    ui.viewOrder(order);
+
   }
+
 
 
 

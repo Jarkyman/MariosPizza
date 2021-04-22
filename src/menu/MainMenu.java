@@ -42,7 +42,8 @@ public class MainMenu {
           ui.showPizzaMenu(carte.getPizza());
           break;
         case 2:
-          rm.registerPizza(carte.getPizza());
+          //rm.makeOrder(carte.getPizza());
+          rm.registerOrder(carte.getPizza());
           break;
         case 3:
 //          sendOrder();
@@ -66,3 +67,5 @@ public class MainMenu {
   }
 
 }
+
+

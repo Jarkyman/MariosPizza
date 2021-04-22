@@ -12,58 +12,50 @@ import java.util.ArrayList;
 
 public class RegisterMenu {
 
-  private ArrayList<String> registerMenu = new ArrayList<>();
+  //private ArrayList<String> registerMenu = new ArrayList<>();
   private ArrayList<Pizza> pizzaInOrder = new ArrayList<>();
   private Order order = new Order();
   private UI ui;
   private FileHandling fh = new FileHandling();
 
 
-  public void registerPizza(ArrayList<Pizza> pizzasInMenu) {
-    morePizzaOption();
-    boolean quit = false;
-
-    while (!quit) {
-
-      order.addPizza(choosePizza(pizzasInMenu));
-
-      quit = morePizza();
-    }
-
-  }
-
-  private void morePizzaOption() {
+  public ArrayList<String> menuOption() {
+    ArrayList<String> registerMenu = new ArrayList<>();
     registerMenu.add("1. Add Pizza");
     registerMenu.add("2. View order");
     registerMenu.add("3. Remove pizza");
     registerMenu.add("4. Choose pick up time");
     registerMenu.add("5. Finish order");
+    return registerMenu;
   }
 
-  private boolean morePizza() {
+
+  public void registerOrder(ArrayList<Pizza> pizzasInMenu) {
 
     int choice = 0;
 
     while(choice != 5) {
 
-      UI ui = new UI("MENU: ", registerMenu, "PLEASE CHOOSE OPTION: ");
+      UI ui = new UI("MENU: ", menuOption(), "PLEASE CHOOSE OPTION: ");
       ui.printMenu();
       choice = ui.readChoice();
 
       switch (choice) {
         case 1:
-          return false;
+          order.addPizza(choosePizza(pizzasInMenu));
+          break;
         case 2:
           ui.viewOrder(order);
           break;
         case 3:
-          removePizzas();
+          order.removePizza(order);
           break;
         case 4:
           choosePickUpTime(order);
           break;
         case 5:
-          fh.saveOrdersToFile(order,order.getOrders());
+          order.saveOrderToArray(order);
+          fh.saveOrdersToFile("OrderList.txt", order, order.getOrders());
           //Save order in file
           break;
         default:
@@ -71,8 +63,29 @@ public class RegisterMenu {
       }
     }
 
-    return true;
   }
+
+  public void makeOrder(ArrayList<Pizza> pizzaInMenu){
+
+    ui.returnMessage("Enter name of costumer: ");
+    order.setName(ui.readLine());
+    String name = order.getName();
+
+    LocalDateTime pickUpTime = choosePickUpTime(order);
+
+    registerOrder(pizzaInMenu);
+
+    ArrayList<Pizza> pizzaList = order.getPizzaList();
+
+
+    Order order = new Order(name, pizzaList, pickUpTime);
+
+    order.saveOrderToArray(order);
+    fh.saveOrdersToFile("OrderList.txt", order, order.getOrders());
+
+  }
+
+
 
   public Pizza choosePizza(ArrayList<Pizza> pizzaInMenu) {
 
@@ -91,20 +104,6 @@ public class RegisterMenu {
     return pizza;
   }
 
-
-  public void removePizzas() {    //Remove pizza(s) from ongoing order
-    ui = new UI();
-    ui.returnMessage("Current order: ");
-    ui.viewOrder(order);
-    ui.setOption("Select the pizza you want to remove ");
-
-    int choice = ui.readChoice();
-
-    order.getPizzaList().remove((choice)-1);
-    ui.viewOrder(order);
-
-
-  }
 
 
 

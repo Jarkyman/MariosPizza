@@ -1,6 +1,0 @@
-1
-null
-Pizza 1. Margherita, toppings:Cheese, Tomato, Oregano, price: 55.0
-, Pizza 7. Oriental, toppings:Tomato, Cheese, Ground beef, Chili, price: 65.0
-
-null
