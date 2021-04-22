@@ -100,7 +100,7 @@ public class RegisterMenu {
 
     int choice = ui.readChoice();
 
-    Pizza pizza = order.getPizzaList().remove((choice)-1);
+    order.getPizzaList().remove((choice)-1);
     ui.viewOrder(order);
 
 
