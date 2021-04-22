@@ -15,6 +15,7 @@ public class MainMenu {
   private FileHandling fh = new FileHandling();
   private Carte carte = new Carte();
   private RegisterMenu rm = new RegisterMenu();
+  private ArrayList<Order> oldOrders = new ArrayList<>();
 
 
 
@@ -22,6 +23,7 @@ public class MainMenu {
 
     carte.setPizza(fh.loadPizzaFromFile("PizzaList.txt"));
     rm.setOrders(fh.loadOrdersFromFile("OrderList.txt"));
+    oldOrders = fh.loadOrdersFromFile("OldOrders.txt");
 
 
     mainMenu.add("1. Show Pizza Menu");
@@ -47,10 +49,10 @@ public class MainMenu {
           rm.registerOrder(carte.getPizza());
           break;
         case 3:
-//          sendOrder();
+          sendOrder(rm.getOrders());
           break;
         case 4:
-//          removeOrder();
+          removeOrder(rm.getOrders());
           break;
         case 5:
           ui.viewOrders(rm.getOrders());
@@ -65,6 +67,58 @@ public class MainMenu {
           ui.returnMessage("NOT A VALID CHOICE");
       }
     }
+  }
+
+  public void removeOrder(ArrayList<Order> orders){
+    UI ui = new UI();
+    ui.returnMessage("Current order: ");
+    ui.viewOrders(orders);
+    ui.setOption("Select the order you want to remove ")
+
+    long choice = ui.readChoice2();
+
+    Order order = null;
+    for(Order o : orders){
+      if(o.getOrderNumber() == choice){
+        order = o;
+      }
+    }
+
+    if (!(order == null)) {
+
+      orders.remove(order);
+      fh.saveOrdersToFile("OrderList.txt", orders);
+    }
+  }
+
+  public void sendOrder(ArrayList<Order> orders) {
+    UI ui = new UI();
+    ui.returnMessage("Current order: ");
+    ui.viewOrders(orders);
+    ui.setOption("Select the order you want to send ");
+
+    long choice = ui.readChoice2();
+
+    Order order = null;
+    for(Order o : orders){
+      if(o.getOrderNumber() == choice){
+        order = o;
+      }
+    }
+
+    if (!(order == null)) {
+      ui.printReceipt(order);
+
+      oldOrders.add(order);
+      fh.saveOrdersToFile("OldOrders.txt", oldOrders);
+
+      orders.remove(order);
+      fh.saveOrdersToFile("OrderList.txt", orders);
+    } else {
+      ui.returnMessage("Not valid order input");
+    }
+    //Order order = orders.get(choice - 1);
+
   }
 
 }

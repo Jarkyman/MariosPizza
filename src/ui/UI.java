@@ -123,9 +123,11 @@ public class UI {
       String pickUpTime = o.getPickUpTime().toString();
       pickUpTime = pickUpTime.replaceAll("T", " ");
 
+      System.out.println("--------------------------------------");
       System.out.println("Order number: " + o.getOrderNumber() + "\nCostumers name: " + o.getName() +
-          "\nPick up time: " + pickUpTime + "\n Order: " + o.getPizzaNames());
+          "\nPrice: " + o.priceTotal() + "\nPick up time: " + pickUpTime + "\n Order: " + o.getPizzaNames().toString());
     }
+    System.out.println("--------------------------------------\n");
 
   }
 
@@ -163,7 +165,7 @@ public class UI {
     return time;
   }
 
-<<<<<<< HEAD
+
   public LocalDateTime dateTime(){
     System.out.println("PLEASE CHOOSE A PICK UP TIME (dd-mm-yyyy hh:mm): ");
 
@@ -175,7 +177,7 @@ public class UI {
     System.out.println(dateTime);
     return dateTime;
   }
-=======
+
   /*public LocalDateTime dateTime(){
     System.out.println("PLEASE CHOOSE A PICK UP TIME (dd-mm-yyyy hh:mm): ");
     String input = sc.nextLine();
@@ -184,7 +186,22 @@ public class UI {
     System.out.println(dateTime);
     return dateTime;
   }*/
->>>>>>> 771bbf83a06c653b8be559168cb76d8c207fd733
+
+  public void printReceipt(Order order) {
+
+    String pickUpTime = order.toString();
+    pickUpTime = pickUpTime.replaceAll("T", " ");
+
+    System.out.println("----------------RECEIPT---------------");
+    System.out.println("--------------------------------------");
+    System.out.println(order.getName());
+    System.out.println(order.getPizzaNames());
+    System.out.println(order.getPickUpTime());
+    System.out.println(order.priceTotal());
+    System.out.println("--------------------------------------\n");
+
+
+  }
 
 
   public void viewStatistics(){}

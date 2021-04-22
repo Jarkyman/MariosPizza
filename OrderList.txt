@@ -1,26 +1,10 @@
-1
-<<<<<<< HEAD
-null
-Margherita
-Cheese, Tomato, Oregano
-55.0
-null
-1
-null
-Hawaii
-Cheese, Tomato, Ham, Pineapple
-65.0
-null
-=======
-Jack
-Diego, Capricciosa
-2020-12-12T12:12
-2
-Hans
-Diego, Capricciosa
-2020-12-12T12:12
-3
-Ole
-Diego, Capricciosa
-2020-12-12T12:12
->>>>>>> 771bbf83a06c653b8be559168cb76d8c207fd733
+220421233640
+mia
+85.0
+Mama mia
+1212-12-12T12:45
+220421233716
+sami
+80.0, 105.0
+Salami, Verona
+1212-12-12T12:39

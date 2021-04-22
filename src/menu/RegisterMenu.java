@@ -5,10 +5,12 @@ import orders.Order;
 import ui.FileHandling;
 import ui.UI;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class RegisterMenu {
 
@@ -40,9 +42,15 @@ public class RegisterMenu {
 
   public void registerOrder(ArrayList<Pizza> pizzasInMenu) {
     order = new Order();
-    order.addPizza(choosePizza(pizzasInMenu).getName());
+    Pizza pizza = choosePizza(pizzasInMenu);
+    order.addPizza(pizza.getName());
+    order.addPizzaPrice(pizza.getPrice());
     order.setName(ui.name());
     choosePickUpTime(order);
+    Date date = new Date();
+    SimpleDateFormat formatter = new SimpleDateFormat("ddMMyyHHmmss");
+    long orderNumber = Long.parseLong(formatter.format(date));
+    order.setOrderNumber(orderNumber);
 
 
     int choice = 0;
@@ -57,8 +65,9 @@ public class RegisterMenu {
 
       switch (choice) {
         case 1:
-//          order.addPizza(choosePizza(pizzasInMenu));
-          order.addPizza(choosePizza(pizzasInMenu).getName());
+          pizza = choosePizza(pizzasInMenu);
+          order.addPizza(pizza.getName());
+          order.addPizzaPrice(pizza.getPrice());
           break;
         case 2:
           ui.viewOrder(order);

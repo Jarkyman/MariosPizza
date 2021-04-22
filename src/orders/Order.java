@@ -21,9 +21,10 @@ public class Order {
   private LocalDateTime pickUpTime;
   private ArrayList<Pizza> pizzaList = new ArrayList<>();
   private ArrayList<String> pizzaNames = new ArrayList<>();
+  private ArrayList<Double> pizzaPrice = new ArrayList<>();
   private UI ui = new UI();
 
-  private int orderNumber;
+  private long orderNumber;
   private String name;
 
 
@@ -32,15 +33,17 @@ public class Order {
   }
 
 
-  public Order(String name, ArrayList<String> pizzaList, LocalDateTime pickUpTime){
+  public Order(String name, ArrayList<Double> pizzaPrice, ArrayList<String> pizzaNames, LocalDateTime pickUpTime){
     setName(name);
-    setPizzaNames(pizzaList);
+    setPizzaPrice(pizzaPrice);
+    setPizzaNames(pizzaNames);
     setPickUpTime(pickUpTime);
   }
 
-  public Order(int orderNumber, String name, ArrayList<String> pizzaList, LocalDateTime pickUpTime){
+  public Order(long orderNumber, String name, ArrayList<Double> pizzaPrice, ArrayList<String> pizzaNames, LocalDateTime pickUpTime){
     setOrderNumber(orderNumber);
     setName(name);
+    setPizzaPrice(pizzaPrice);
     setPizzaNames(pizzaNames);
     setPickUpTime(pickUpTime);
   }
@@ -50,6 +53,7 @@ public class Order {
     return name;
   }
 
+  public ArrayList<Double> getPizzaPrice() { return pizzaPrice; }
 
   public LocalDateTime getPickUpTime() {
     return pickUpTime;
@@ -63,8 +67,8 @@ public class Order {
 
   //public ArrayList<Order> getOrders() {return orders;}
 
-  public int getOrderNumber() {
-    return orderNumber + 1;
+  public long getOrderNumber() {
+    return orderNumber;
   }
 
 
@@ -82,7 +86,7 @@ public class Order {
   //public void setOrders(ArrayList<Order> orders) {this.orders = orders;}
 
 
-  public void setOrderNumber(int orderNumber) {
+  public void setOrderNumber(long orderNumber) {
     this.orderNumber = orderNumber;
   }
 
@@ -98,6 +102,7 @@ public class Order {
   }*/
 
   public void addPizza(String pizzaName) {pizzaNames.add(pizzaName);}
+  public void addPizzaPrice(double price) {pizzaPrice.add(price); }
 
   public void removePizza(Order order) {    //Remove pizza(s) from ongoing order
     ui = new UI();
@@ -107,7 +112,8 @@ public class Order {
 
     int choice = ui.readChoice();
 
-    order.getPizzaNames().remove((choice)-1);
+    order.getPizzaNames().remove(choice - 1);
+    order.getPizzaPrice().remove(choice - 1);
     ui.viewOrder(order);
 
   }

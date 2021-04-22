@@ -110,6 +110,8 @@ public class FileHandling {
  */
         writerOrders.write(orders.get(i).getOrderNumber() + "\n");
         writerOrders.write(orders.get(i).getName() + "\n");
+        writerOrders.write(orders.get(i).getPizzaPrice().toString().replaceAll("\\[", "").
+            replaceAll("]", "") + "\n");
         writerOrders.write(orders.get(i).getPizzaNames().toString().replaceAll("\\[", "").
             replaceAll("]", "") + "\n");
         writerOrders.write(orders.get(i).getPickUpTime() + "\n");
@@ -146,27 +148,37 @@ public class FileHandling {
         while (fileReaderOrders.hasNextLine()) {
 
           String temp;
-          int orderNr;
+          long orderNr;
           String orderName;
+          ArrayList<Double> pizzaPrice = new ArrayList<>();
 //          ArrayList<Pizza> pizzaInOrder = new ArrayList<>();
           ArrayList<String> pizzaInOrder = new ArrayList<>();
           String dateTimeOrder;
           temp = fileReaderOrders.nextLine();
 
           if (!temp.isEmpty()) {
-            orderNr = Integer.parseInt(temp);
+            orderNr = Long.parseLong(temp);
+
             temp = fileReaderOrders.nextLine();
             orderName = temp;
 
             temp = fileReaderOrders.nextLine();
-            String [] pizzaArray = temp.split(", ");
+            String[] pizzaPriceArray = temp.split(", ");
+            Double[] pizzaPriceDouble = new Double[pizzaPriceArray.length];
+            for (int i = 0; i < pizzaPriceArray.length; i++) {
+              pizzaPriceDouble[i] = Double.parseDouble(pizzaPriceArray[i]);
+            }
+            Collections.addAll(pizzaPrice, pizzaPriceDouble);
+
+            temp = fileReaderOrders.nextLine();
+            String[] pizzaArray = temp.split(", ");
             Collections.addAll(pizzaInOrder, pizzaArray);
 
             temp = fileReaderOrders.nextLine();
             LocalDateTime dateTime = LocalDateTime.parse(temp);
 
 
-            orderList.add(new Order(orderNr,orderName, pizzaInOrder, dateTime));
+            orderList.add(new Order(orderNr, orderName, pizzaPrice, pizzaInOrder, dateTime));
 
           }
         }
