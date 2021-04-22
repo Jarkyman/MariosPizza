@@ -90,7 +90,7 @@ public class FileHandling {
 
   public void saveOrdersToFile(String fileName, ArrayList<Order> orders) {
 
-    //private final String fileNameOrders = "PizzaInOrder.txt";
+
 
     File fileOrders = new File(fileName);
     try {
@@ -123,12 +123,12 @@ public class FileHandling {
     }
   }
 
-/*
+
 
   public ArrayList<Order> loadOrdersFromFile(String fileName) {
 
     File fileOrders = new File(fileName);
-    ArrayList<Order> orderTemp = new ArrayList<>();
+    ArrayList<Order> orderList = new ArrayList<>();
 
     try {
       Scanner fileReaderOrders = new Scanner(fileOrders);
@@ -145,30 +145,26 @@ public class FileHandling {
         while (fileReaderOrders.hasNextLine()) {
 
           String temp;
+          int orderNr;
           String orderName;
-          ArrayList<String> pizzaTemp = new ArrayList<>();
+          ArrayList<Pizza> pizzaInOrder = new ArrayList<>();
           String dateTimeOrder;
-
-          ArrayList<String> pizzaInOneOrder = new ArrayList<>();
-
           temp = fileReaderOrders.nextLine();
 
           if (!temp.isEmpty()) {
+            orderNr = Integer.parseInt(temp);
+            temp = fileReaderOrders.nextLine();
             orderName = temp;
 
-            temp = fileReaderOrders.nextLine();
-            String[] pizzaArray = temp.split(", ");
-            Collections.addAll(pizzaTemp, pizzaArray);
+            String [] pizzaArray = temp.split(", ");
+            Collections.addAll(pizzaInOrder, pizzaArray);
 
             temp = fileReaderOrders.nextLine();
-            temp = dateTimeOrder;
-
-            dateTimeOrder = "2018-07-14T17:45:55.9483536";
+            //dateTimeOrder = "2018-07-14T17:45";
             DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
-            LocalDateTime dateTime = LocalDateTime.parse(dateTimeOrder, formatter);
 
-
-            orderTemp.add(new Order(orderName, pizzaInOneOrder, dateTime));
+            LocalDateTime dateTime = LocalDateTime.parse(temp, formatter);
+            orderList.add(new Order(orderNr,orderName, pizzaInOrder, dateTime));
 
 
           }
@@ -180,10 +176,10 @@ public class FileHandling {
       e.printStackTrace();
     }
 
-    return orderTemp;
-    }
-
- */
+    return orderList;
   }
+
+
+}
 
 

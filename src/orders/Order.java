@@ -37,6 +37,13 @@ public class Order {
     setPickUpTime(pickUpTime);
   }
 
+  public Order(int orderNumber, String name, ArrayList<Pizza> pizzaList, LocalDateTime pickUpTime){
+    setOrderNumber(orderNumber);
+    setName(name);
+    setPizzaList(pizzaList);
+    setPickUpTime(pickUpTime);
+  }
+
   //GETTER
   public String getName() {
     return name;
