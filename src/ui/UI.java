@@ -83,6 +83,17 @@ public class UI {
 
     return choice;
   }
+
+  public long readChoice2(){
+    System.out.println(getOption());
+
+    long choice = 0;
+    choice = sc.nextLong();
+    sc.nextLine();
+
+    return choice;
+  }
+
   public String readLine(){
     //System.out.println(getOption());
     String number = sc.next();

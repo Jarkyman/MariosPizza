@@ -77,6 +77,7 @@ public class Order {
     this.name = name;
   }
 
+  public void setPizzaPrice(ArrayList<Double> pizzaPrice){this.pizzaPrice = pizzaPrice;}
 
   public void setPizzaList(ArrayList<Pizza> pizzaList) {
     this.pizzaList = pizzaList;
@@ -116,6 +117,16 @@ public class Order {
     order.getPizzaPrice().remove(choice - 1);
     ui.viewOrder(order);
 
+  }
+
+  public double priceTotal(){
+
+    double count = 0;
+    for(double d : getPizzaPrice()){
+      count += d;
+    }
+
+    return count;
   }
 
 
