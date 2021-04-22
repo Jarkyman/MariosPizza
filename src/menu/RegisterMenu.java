@@ -99,19 +99,14 @@ public class RegisterMenu {
     ui.setOption("Select the pizza you want to remove ");
 
     int choice = ui.readChoice();
-    for (int i = 0; i < order.getPizzaList().size(); i++) {
 
-      Pizza pizza = order.getPizzaList().remove(choice - 1);
-      if (order.getPizzaList().remove(pizza)) {
-        order.removePizza(pizza);
+    Pizza pizza = order.getPizzaList().remove((choice)-1);
+    ui.viewOrder(order);
 
-        ui.viewOrder(order);
-      }
-      //Pizza pizza = ui.getPizzaList().remove(choice - 1);
-      //System.out.println(pizza.getName());
-      //return pizza;
-    }
+
   }
+
+
 
   public LocalDateTime choosePickUpTime(Order order) {
 
