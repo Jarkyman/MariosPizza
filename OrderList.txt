@@ -1,12 +1,12 @@
 1
-kamille
+null
 Margherita
 Cheese, Tomato, Oregano
 55.0
-2021-04-23T12:30
+null
 1
-Christoffer
-Mama mia
-Tomato, Cheese, Meat strips, Pepperoni, Bacon, Garlic, Chili
-85.0
-2021-04-22T19:30
+null
+Hawaii
+Cheese, Tomato, Ham, Pineapple
+65.0
+null
