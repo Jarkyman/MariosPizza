@@ -121,16 +121,14 @@ public class UI {
 
   public LocalTime time() {
 
-    System.out.println("PLEASE CHOOSE A PICK UP TIME: ");
-    System.out.println("HOUR:");
-    int hour = sc.nextInt();
-    System.out.println("MINUTE:");
-    int minute = sc.nextInt();
+    System.out.println("PLEASE CHOOSE A PICK UP TIME (hh:mm): ");
 
+    String input = sc.nextLine();
 
-    LocalTime time = LocalTime.of(hour, minute);
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+    LocalTime time = LocalTime.parse(input, formatter);
+
     System.out.println(time);
-
     return time;
   }
 
