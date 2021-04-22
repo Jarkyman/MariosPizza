@@ -21,7 +21,7 @@ public class Order {
   private ArrayList<Pizza> pizzaList = new ArrayList<>();
   private UI ui = new UI();
 
-  private ArrayList<Order> orders = new ArrayList<>();
+  //private ArrayList<Order> orders = new ArrayList<>();
   private int orderNumber;
   private String name;
 
@@ -52,9 +52,7 @@ public class Order {
     return pizzaList;
   }
 
-  public ArrayList<Order> getOrders() {
-    return orders;
-  }
+  //public ArrayList<Order> getOrders() {return orders;}
 
   public int getOrderNumber() {
     return orderNumber + 1;
@@ -71,9 +69,7 @@ public class Order {
     this.pizzaList = pizzaList;
   }
 
-  public void setOrders(ArrayList<Order> orders) {
-    this.orders = orders;
-  }
+  //public void setOrders(ArrayList<Order> orders) {this.orders = orders;}
 
 
   public void setOrderNumber(int orderNumber) {
@@ -104,12 +100,11 @@ public class Order {
 
   }
 
+  public void orderNumber(){
 
-
-
-  public void saveOrderToArray(Order order) {
-    orders.add(order);
   }
+
+
 
 
 }

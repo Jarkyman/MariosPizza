@@ -14,9 +14,10 @@ public class RegisterMenu {
 
   //private ArrayList<String> registerMenu = new ArrayList<>();
   private ArrayList<Pizza> pizzaInOrder = new ArrayList<>();
-  private Order order = new Order();
+  private Order order;
   private UI ui;
   private FileHandling fh = new FileHandling();
+  private ArrayList<Order> orders = new ArrayList<>();
 
 
   public ArrayList<String> menuOption() {
@@ -31,6 +32,7 @@ public class RegisterMenu {
 
 
   public void registerOrder(ArrayList<Pizza> pizzasInMenu) {
+    order = new Order();
 
     int choice = 0;
 
@@ -51,11 +53,12 @@ public class RegisterMenu {
           order.removePizza(order);
           break;
         case 4:
+          giveName(order);
           choosePickUpTime(order);
           break;
         case 5:
-          order.saveOrderToArray(order);
-          fh.saveOrdersToFile("OrderList.txt", order, order.getOrders());
+          saveOrderToArray(order);
+          fh.saveOrdersToFile("OrderList.txt", orders);
           //Save order in file
           break;
         default:
@@ -65,27 +68,14 @@ public class RegisterMenu {
 
   }
 
-  public void makeOrder(ArrayList<Pizza> pizzaInMenu){
-
-    ui.returnMessage("Enter name of costumer: ");
-    order.setName(ui.readLine());
-    String name = order.getName();
-
-    LocalDateTime pickUpTime = choosePickUpTime(order);
-
-    registerOrder(pizzaInMenu);
-
-    ArrayList<Pizza> pizzaList = order.getPizzaList();
-
-
-    Order order = new Order(name, pizzaList, pickUpTime);
-
-    order.saveOrderToArray(order);
-    fh.saveOrdersToFile("OrderList.txt", order, order.getOrders());
-
+  public void saveOrderToArray(Order order) {
+    orders.add(order);
   }
 
+  public void giveName(Order order){
 
+    order.setName(ui.name());
+  }
 
   public Pizza choosePizza(ArrayList<Pizza> pizzaInMenu) {
 

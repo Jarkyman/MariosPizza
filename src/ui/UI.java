@@ -117,6 +117,13 @@ public class UI {
 
   public void viewOrders(ArrayList<Order> orders){}
 
+  public String name(){
+    System.out.println("Enter name of costumer: ");
+    String name = sc.nextLine();
+
+    return name;
+  }
+
 
   public LocalDate date(){
 
