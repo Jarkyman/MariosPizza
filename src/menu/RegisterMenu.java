@@ -5,6 +5,9 @@ import orders.Order;
 import ui.FileHandling;
 import ui.UI;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class RegisterMenu {
@@ -34,7 +37,7 @@ public class RegisterMenu {
     registerMenu.add("2. View order");
     registerMenu.add("3. Remove pizza");
     registerMenu.add("4. Choose pick up time");
-    registerMenu.add("3. Finish order");
+    registerMenu.add("5. Finish order");
   }
 
   private boolean morePizza() {
@@ -57,7 +60,7 @@ public class RegisterMenu {
           removePizzas();
           break;
         case 4:
-          order.choosePickUpTime(order);
+          choosePickUpTime(order);
           break;
         case 5:
           fh.saveOrdersToFile(order,order.getOrders());
@@ -94,31 +97,46 @@ public class RegisterMenu {
     ui.returnMessage("Current order: ");
     ui.viewOrder(order);
     ui.setOption("Select the pizza you want to remove ");
+
     int choice = ui.readChoice();
     for (int i = 0; i < order.getPizzaList().size(); i++) {
 
       Pizza pizza = order.getPizzaList().remove(choice - 1);
       if (order.getPizzaList().remove(pizza)) {
         order.removePizza(pizza);
+
+        ui.viewOrder(order);
       }
-      ui.viewOrder(order);
+      //Pizza pizza = ui.getPizzaList().remove(choice - 1);
+      //System.out.println(pizza.getName());
+      //return pizza;
     }
-    //Pizza pizza = ui.getPizzaList().remove(choice - 1);
-    //System.out.println(pizza.getName());
-    //return pizza;
+  }
+
+  public LocalDateTime choosePickUpTime(Order order) {
+
+    LocalDate date = ui.date();
+    LocalTime time = ui.time();
+
+    order.setPickUpTime(LocalDateTime.of(date, time));
+
+    return LocalDateTime.of(date, time);
   }
 
 
+/*
+    private void chooseTopping() {
 
-  private void chooseTopping() {
+      // tilføj topping
 
-    // tilføj topping
+      // + ekstra pris
 
-    // + ekstra pris
+    }
+
+ */
 
   }
 
-}
 
 
 

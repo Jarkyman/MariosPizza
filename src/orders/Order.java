@@ -17,7 +17,7 @@ public class Order {
 
   //ATTRIBUTES
   private LocalDateTime timeOfOrder = LocalDateTime.now();
-  private LocalTime pickUpTime;
+  private LocalDateTime pickUpTime;
   private ArrayList<Pizza> pizzaList = new ArrayList<>();
   private UI ui = new UI();
 
@@ -31,8 +31,12 @@ public class Order {
   public Order() {
   }
 
+<<<<<<< HEAD
   public Order(int orderNumber, String name, ArrayList<Pizza> pizzaList, LocalTime pickUpTime) {
     setOrderNumber(orderNumber);
+=======
+  public Order(String name, ArrayList<Pizza> pizzaList, LocalDateTime pickUpTime){
+>>>>>>> b434630d61ed206b40d832f8b16ce288b549ca25
     setName(name);
     setPizzaList(pizzaList);
     setPickUpTime(pickUpTime);
@@ -47,9 +51,13 @@ public class Order {
     return timeOfOrder;
   }
 
+<<<<<<< HEAD
   public LocalTime getPickUpTime() {
     return pickUpTime;
   }
+=======
+  public LocalDateTime getPickUpTime(){return pickUpTime;}
+>>>>>>> b434630d61ed206b40d832f8b16ce288b549ca25
 
   public ArrayList<Pizza> getPizzaList() {
     return pizzaList;
@@ -81,9 +89,13 @@ public class Order {
     this.orders = orders;
   }
 
+<<<<<<< HEAD
   public void setOrderNumber(int orderNumber) {
     this.orderNumber = orderNumber;
   }
+=======
+  public void setPickUpTime(LocalDateTime pickUpTime){this.pickUpTime = pickUpTime;}
+>>>>>>> b434630d61ed206b40d832f8b16ce288b549ca25
 
 
   //METHODS
@@ -97,6 +109,7 @@ public class Order {
   }
 
 
+<<<<<<< HEAD
   public void choosePickUpTime(Order order) {
 
     ui.returnMessage("PLEASE CHOOSE A PICK UP TIME: ");
@@ -115,4 +128,6 @@ public class Order {
     orders.add(order);
   }
 
+=======
+>>>>>>> b434630d61ed206b40d832f8b16ce288b549ca25
 }

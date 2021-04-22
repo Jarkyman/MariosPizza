@@ -4,6 +4,9 @@ import carte.Pizza;
 import orders.Order;
 
 import javax.sound.midi.Soundbank;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -84,8 +87,6 @@ public class UI {
     return number;
   }
 
-
-
   public void returnMessage(String message){
     System.out.println(message);
   }
@@ -98,23 +99,47 @@ public class UI {
   }
 
   public void viewOrder(Order order){
-    System.out.println(order.getPickUpTime());
+    System.out.println("PICK UP TIME: " + order.getPickUpTime());
+    System.out.println("Pizzas: ");
     for(Pizza p : order.getPizzaList()){
      System.out.println(p.getName() + " " + p.getToppings().toString() + " " + p.getPrice());
     }
     System.out.println();
   }
 
+<<<<<<< HEAD
 
 
   public int time(){
     int choice = sc.nextInt();
     sc.nextLine();
+=======
+  public LocalDate date(){
+>>>>>>> b434630d61ed206b40d832f8b16ce288b549ca25
 
-    return choice;
+    System.out.println("Enter date (dd-mm-yyyy): ");
+    String input = sc.nextLine();
+
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+    LocalDate date = LocalDate.parse(input, formatter);
+
+    System.out.println(date);
+    return date;
   }
 
-  //RETURN DOUBLE PICK UP TIME
+  public LocalTime time() {
+
+    System.out.println("PLEASE CHOOSE A PICK UP TIME (hh:mm): ");
+
+    String input = sc.nextLine();
+
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+    LocalTime time = LocalTime.parse(input, formatter);
+
+    System.out.println(time);
+    return time;
+  }
+
 
   public void viewStatistics(){}
 

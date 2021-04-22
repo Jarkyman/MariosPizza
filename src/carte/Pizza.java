@@ -3,7 +3,7 @@ package carte;
 import java.util.ArrayList;
 
 public class Pizza {
-
+  private int number;
   private String name;
   private ArrayList<String>toppings = new ArrayList<>();
   private double price;
@@ -14,12 +14,17 @@ public class Pizza {
     this.price = price;
   }
 
+  public int getNumber(){return number;}
+
+  public void setNumber(int number){this.number = number;}
+
   public String getName() {
     return name;
   }
   public void setName(String name) {
     this.name = name;
   }
+
   public ArrayList<String>getToppings() {
     return toppings;
   }
