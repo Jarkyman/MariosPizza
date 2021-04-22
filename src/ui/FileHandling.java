@@ -163,14 +163,10 @@ public class FileHandling {
             Collections.addAll(pizzaInOrder, pizzaArray);
 
             temp = fileReaderOrders.nextLine();
-            //dateTimeOrder = "2018-07-14T17:45";
-            temp = temp.replaceAll("T", " ");
+            LocalDateTime dateTime = LocalDateTime.parse(temp);
 
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm");
 
-            LocalDateTime dateTime = LocalDateTime.parse(temp, formatter);
             orderList.add(new Order(orderNr,orderName, pizzaInOrder, dateTime));
-
 
           }
         }

@@ -5,6 +5,7 @@ import orders.Order;
 
 import javax.sound.midi.Soundbank;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -119,8 +120,11 @@ public class UI {
 
   public void viewOrders(ArrayList<Order> orders){
     for(Order o : orders){
+      String pickUpTime = o.getPickUpTime().toString();
+      pickUpTime = pickUpTime.replaceAll("T", " ");
+
       System.out.println("Order number: " + o.getOrderNumber() + "\nCostumers name: " + o.getName() +
-          "\nPick up time: " + o.getPickUpTime() + "\n Order: " + o.getPizzaNames());
+          "\nPick up time: " + pickUpTime + "\n Order: " + o.getPizzaNames());
     }
 
   }
@@ -141,7 +145,7 @@ public class UI {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     LocalDate date = LocalDate.parse(input, formatter);
 
-    System.out.println(date);
+//    System.out.println(date);
     return date;
 
   }
@@ -155,7 +159,7 @@ public class UI {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
     LocalTime time = LocalTime.parse(input, formatter);
 
-    System.out.println(time);
+//    System.out.println(time);
     return time;
   }
 
