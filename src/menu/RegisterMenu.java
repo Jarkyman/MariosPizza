@@ -19,6 +19,9 @@ public class RegisterMenu {
   private FileHandling fh = new FileHandling();
   private ArrayList<Order> orders = new ArrayList<>();
 
+  public ArrayList<Order> getOrders() {
+    return orders;
+  }
 
   public ArrayList<String> menuOption() {
     ArrayList<String> registerMenu = new ArrayList<>();
@@ -55,6 +58,7 @@ public class RegisterMenu {
         case 4:
           giveName(order);
           choosePickUpTime(order);
+          order.setOrderNumber(orders.indexOf(order));
           break;
         case 5:
           saveOrderToArray(order);
@@ -106,7 +110,9 @@ public class RegisterMenu {
 
     return LocalDateTime.of(date, time);
   }
-
+//  public void orderNumber(Order order){
+//    order.setOrderNumber(orders.indexOf(order));
+//  }
 
 /*
     private void chooseTopping() {

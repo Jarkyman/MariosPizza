@@ -2,6 +2,7 @@ package orders;
 
 import carte.Carte;
 import carte.Pizza;
+import menu.RegisterMenu;
 import ui.UI;
 
 import java.sql.Time;
@@ -99,11 +100,6 @@ public class Order {
     ui.viewOrder(order);
 
   }
-
-  public void orderNumber(){
-
-  }
-
 
 
 

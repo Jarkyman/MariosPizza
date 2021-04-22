@@ -1,12 +1,16 @@
-1
-kamille
-Margherita
-Cheese, Tomato, Oregano
-55.0
-2021-04-23T12:30
-1
-Christoffer
+0
+Vitaliy
+O sole mio
+Tomato, Cheese, Tuna, Mushrooms
+69.0, Vegetariana
+Tomato, Cheese, Mushrooms, Paprika, Onion
+65.0
+2021-04-22T18:58
+0
+Cristoffer
 Mama mia
 Tomato, Cheese, Meat strips, Pepperoni, Bacon, Garlic, Chili
-85.0
-2021-04-22T19:30
+85.0, Diego
+Tomato, Cheese, Kebab, Mushrooms, Chili
+65.0
+2021-04-22T19:00
