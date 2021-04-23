@@ -133,9 +133,15 @@ public class MainMenu {
     //Chirs
   }
 
-  public void totalProfit(){
-  //Vitaliy
+  public double totalProfit(){
+    double profit = 0;
+      for (int i = 0; i < oldOrders.size();i++){
+        profit += oldOrders.get(i).priceTotal();
+      }
+    return profit;
   }
+
+
 
   public void averageOrderPrice(){
 
