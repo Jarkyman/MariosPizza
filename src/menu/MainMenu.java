@@ -62,10 +62,12 @@ public class MainMenu {
           removeOrder(rm.getOrders());
           break;
         case 5:
+          averageOrderPrice(rm.getOrders());
           ui.viewOrders(rm.getOrders());
           break;
         case 6:
-          ui.viewStatistics();
+          averageOrderPrice(oldOrders);
+          //ui.viewStatistics();
           break;
         case 9:
           ui.returnMessage("QUIT");
@@ -137,10 +139,26 @@ public class MainMenu {
   //Vitaliy
   }
 
-  public void averageOrderPrice(){
+  public void averageOrderPrice(ArrayList<Order> orders){
+
+    int count = 0;
+    double price = 0;
+    for(Order o : orders){
+      price = o.priceTotal();
+      //ui.returnMessage("Order total: " + price);
+      count += price;
+      }
+
+    //ui.returnMessage("Total profit : " + count);
+
+    double average = count / orders.size();
+
+    ui.returnMessage("Average order price: " + average);
+
+    }
 
   }
 
-}
+
 
 
