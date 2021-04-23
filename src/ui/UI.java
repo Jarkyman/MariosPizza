@@ -86,8 +86,8 @@ public class UI {
 
   public void showPizzaMenu(ArrayList<Pizza> pizzaList){
     for(int i = 0; i < pizzaList.size(); i++){
-      System.out.println((i + 1) + "" + pizzaList.get(i).print().replaceAll("\\[", "").
-          replaceAll("]", ""));
+      System.out.printf("\033[4m%-3d %-20s %-90s %.2f DKK\033[0m\n", (i + 1), pizzaList.get(i).getName(), pizzaList.get(i).getToppings().toString()
+          .replaceAll("\\[", "").replaceAll("]", ""), pizzaList.get(i).getPrice());
     }
   }
 
@@ -111,11 +111,11 @@ public class UI {
     for(Order o : orders){
       String pickUpTime = o.getPickUpTime().toString();
       pickUpTime = pickUpTime.replaceAll("T", " ");
+      String pickupTimeText = pickUpTime;
 
       System.out.println("--------------------------------------");
-      System.out.println("Order number: " + o.getOrderNumber() + "\nCostumers name: " + o.getName() +
-          "\nPrice: " + o.priceTotal() + "\nPick up time: " + pickUpTime + "\nOrder: " + o.getPizzaNames().toString().
-          replaceAll("\\[", "").replaceAll("]", ""));
+      System.out.printf("%-15s %-15d\n%-15s %-15s\n%-15s %.2f DKK\n%-15s %-15s\n%-15s %-15s\n","Order number:", o.getOrderNumber(), "Costumer name:", o.getName(),"Price:", o.priceTotal(),"Pick up time",
+          pickupTimeText, "Order:", o.getPizzaNames().toString().replaceAll("\\[", "").replaceAll("]", ""));
     }
 
     System.out.println("--------------------------------------\n");
@@ -170,16 +170,13 @@ public class UI {
 
   public void printReceipt(Order order) {
 
-    String pickUpTime = order.toString();
+    String pickUpTime = order.getPickUpTime().toString();
     pickUpTime = pickUpTime.replaceAll("T", " ");
 
-    System.out.println("----------------RECEIPT---------------");
-    System.out.println("--------------------------------------");
-    System.out.println("Customers name: " + order.getName());
-    System.out.println("Pizzas: " + order.getPizzaNames());
-    System.out.println("Pick uo time: " + order.getPickUpTime());
-    System.out.println("Total price: " + order.priceTotal());
-    System.out.println("--------------------------------------\n");
+    System.out.println("---------------RECEIPT---------------");
+    System.out.printf("%-20s %-15s\n%-20s %-15s\n%-20s %-15s\n%-20s %.2f DKK\n","Customers name:", order.getName(), "Pick uo time:", order.getPickUpTime(), "Pizzas: ",
+        order.getPizzaNames(), "Total price:", order.priceTotal());
+    System.out.println("-------------------------------------\n");
 
 
   }
