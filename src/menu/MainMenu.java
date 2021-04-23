@@ -135,10 +135,15 @@ public class MainMenu {
     //Chirs
   }
 
-  public void totalProfit(){
-  //Vitaliy
+  public double totalProfit(){
+    double profit = 0;
+      for (int i = 0; i < oldOrders.size();i++){
+        profit += oldOrders.get(i).priceTotal();
+      }
+    return profit;
   }
 
+<<<<<<< HEAD
   public void averageOrderPrice(ArrayList<Order> orders){
 
     int count = 0;
@@ -156,6 +161,11 @@ public class MainMenu {
     ui.returnMessage("Average order price: " + average);
 
     }
+=======
+
+
+  public void averageOrderPrice(){
+>>>>>>> 8d9fd22c9deddc3796ebf206c1769c92c5b1122f
 
   }
 
