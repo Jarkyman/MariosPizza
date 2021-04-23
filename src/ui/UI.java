@@ -2,12 +2,9 @@ package ui;
 
 import carte.Pizza;
 import orders.Order;
-
-import javax.sound.midi.Soundbank;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -15,15 +12,13 @@ import java.util.Scanner;
 public class UI {
   Scanner sc = new Scanner(System.in);
 
-  //ATTRIBUTES
+  //Attributes
   private String title;
   private ArrayList<String> list = new ArrayList<String>();
-  //private ArrayList<Pizza> pizzaList;
   private String option;
 
 
-  //CONSTRUCTOR
-
+  //Constructors
   public UI(){}
 
   public UI(String title, ArrayList<String> list, String option){
@@ -31,15 +26,8 @@ public class UI {
     setList(list);
     setOption(option);
   }
-/*
-  public UI(String title, ArrayList<Pizza> pizzaList, String option){
-    setTitle(title);
-    setPizzaList(pizzaList);
-    setOption(option);
-  }
-  */
 
-  //GETTER
+  //Getters
   public String getTitle(){
     return title;
   }
@@ -48,25 +36,17 @@ public class UI {
     return list;
   }
 
-  /*public ArrayList<Pizza> getPizzaList(){
-    return pizzaList;
-  }
-
-   */
-
   public String getOption(){return option;}
 
-  //SETTER
+  //Setters
   public void setTitle(String title){this.title = title;}
 
   public void setList(ArrayList<String> list){this.list = list;}
 
-  //public void setPizzaList(ArrayList<Pizza> pizzaList){this.pizzaList = pizzaList;}
-
   public void setOption(String option){this.option = option;}
 
 
-  //METHODS
+  //Methods
   public void printMenu(){
     System.out.println(getTitle());
     for(Object s : getList()){
@@ -84,7 +64,7 @@ public class UI {
     return choice;
   }
 
-  public long readChoice2(){
+  public long readOrderNumber(){
     System.out.println(getOption());
 
     long choice = 0;
@@ -95,9 +75,8 @@ public class UI {
   }
 
   public String readLine(){
-    //System.out.println(getOption());
-    String number = sc.next();
-    return number;
+    String line = sc.next();
+    return line;
   }
 
   public void returnMessage(String message){
@@ -107,25 +86,24 @@ public class UI {
 
   public void showPizzaMenu(ArrayList<Pizza> pizzaList){
     for(int i = 0; i < pizzaList.size(); i++){
-      System.out.println((i + 1) + "" + pizzaList.get(i).printToFile());
-/*
-      System.out.println(pizzaList.get(i) + pizzaList.get(i).getName() +" "+
-          pizzaList.get(i).getToppings().toString() +" "+ pizzaList.get(i).getPrice());
-
- */
+      System.out.println((i + 1) + "" + pizzaList.get(i).print().replaceAll("\\[", "").
+          replaceAll("]", ""));
     }
   }
 
   public void viewOrder(Order order){
-    System.out.println("PICK UP TIME: " + order.getPickUpTime());
+    String pickUpTime = order.getPickUpTime().toString();
+    pickUpTime = pickUpTime.replaceAll("T", " ");
+
+    System.out.println("PICK UP TIME: " + pickUpTime);
+    System.out.println("Customers name: " + order.getName());
     System.out.println("Pizzas: ");
     int count = 1;
 
     for(String n : order.getPizzaNames()){
-      System.out.println(count++ + ". " + n);
-//     System.out.println((count++) + ". " + n.getName() + " " + n.getToppings().toString() + " " + n.getPrice());
-
+      System.out.println(count++ + ". " + n + " Price: " + order.getPizzaPrice().get(count - 2));
     }
+    System.out.println("Total price: " + order.priceTotal());
     System.out.println();
   }
 
@@ -136,8 +114,10 @@ public class UI {
 
       System.out.println("--------------------------------------");
       System.out.println("Order number: " + o.getOrderNumber() + "\nCostumers name: " + o.getName() +
-          "\nPrice: " + o.priceTotal() + "\nPick up time: " + pickUpTime + "\n Order: " + o.getPizzaNames().toString());
+          "\nPrice: " + o.priceTotal() + "\nPick up time: " + pickUpTime + "\nOrder: " + o.getPizzaNames().toString().
+          replaceAll("\\[", "").replaceAll("]", ""));
     }
+
     System.out.println("--------------------------------------\n");
 
   }
@@ -158,7 +138,6 @@ public class UI {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     LocalDate date = LocalDate.parse(input, formatter);
 
-//    System.out.println(date);
     return date;
 
   }
@@ -172,7 +151,6 @@ public class UI {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
     LocalTime time = LocalTime.parse(input, formatter);
 
-//    System.out.println(time);
     return time;
   }
 
@@ -189,14 +167,6 @@ public class UI {
     return dateTime;
   }
 
-  /*public LocalDateTime dateTime(){
-    System.out.println("PLEASE CHOOSE A PICK UP TIME (dd-mm-yyyy hh:mm): ");
-    String input = sc.nextLine();
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
-    LocalDateTime dateTime = LocalDateTime.parse(input, formatter);
-    System.out.println(dateTime);
-    return dateTime;
-  }*/
 
   public void printReceipt(Order order) {
 
@@ -205,17 +175,20 @@ public class UI {
 
     System.out.println("----------------RECEIPT---------------");
     System.out.println("--------------------------------------");
-    System.out.println(order.getName());
-    System.out.println(order.getPizzaNames());
-    System.out.println(order.getPickUpTime());
-    System.out.println(order.priceTotal());
+    System.out.println("Customers name: " + order.getName());
+    System.out.println("Pizzas: " + order.getPizzaNames());
+    System.out.println("Pick uo time: " + order.getPickUpTime());
+    System.out.println("Total price: " + order.priceTotal());
     System.out.println("--------------------------------------\n");
 
 
   }
 
 
-  public void viewStatistics(){}
+  public void viewStatistics(){
+
+
+  }
 
 
 }

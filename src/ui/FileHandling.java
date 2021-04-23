@@ -1,21 +1,16 @@
 package ui;
 
-import carte.Carte;
 import carte.Pizza;
 import orders.Order;
 
 import java.io.*;
-import java.sql.Time;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class FileHandling {
 
-  //Order order = new Order();
 
-
+  //Methods
   public void savePizzaToFile(String fileName, ArrayList<Pizza> list) {
     File file = new File(fileName);
 
@@ -48,7 +43,6 @@ public class FileHandling {
       if (newFileCreated) {
         System.out.println("File do not exist");
         System.out.println("Creating file..");
-        Thread.sleep(2000);
         System.out.println("File created");
       }
 
@@ -75,13 +69,12 @@ public class FileHandling {
 
           }
 
-
         }
       }
 
       fileReader.close();
 
-    } catch (Exception e) {
+    } catch (IOException e) {
       e.printStackTrace();
     }
 
@@ -100,14 +93,7 @@ public class FileHandling {
 
 
       for (int i = 0; i < orders.size(); i++) {
-/*
-        writerOrders.write(order.getOrderNumber() + "\n");
-        writerOrders.write(order.getName() + "\n");
-        writerOrders.write(order.getPizzaList().toString().replaceAll("\\[", "").
-            replaceAll("]", "") + "\n");
-        writerOrders.write(order.getPickUpTime() + "\n");
 
- */
         writerOrders.write(orders.get(i).getOrderNumber() + "\n");
         writerOrders.write(orders.get(i).getName() + "\n");
         writerOrders.write(orders.get(i).getPizzaPrice().toString().replaceAll("\\[", "").
@@ -140,7 +126,6 @@ public class FileHandling {
       if (newFileCreated) {
         System.out.println("File do not exist");
         System.out.println("Creating file..");
-        Thread.sleep(2000);
         System.out.println("File created");
       }
 
@@ -151,9 +136,7 @@ public class FileHandling {
           long orderNr;
           String orderName;
           ArrayList<Double> pizzaPrice = new ArrayList<>();
-//          ArrayList<Pizza> pizzaInOrder = new ArrayList<>();
           ArrayList<String> pizzaInOrder = new ArrayList<>();
-          String dateTimeOrder;
           temp = fileReaderOrders.nextLine();
 
           if (!temp.isEmpty()) {
@@ -185,7 +168,7 @@ public class FileHandling {
       }
       fileReaderOrders.close();
 
-    } catch (Exception e) {
+    } catch (IOException e) {
       e.printStackTrace();
     }
 

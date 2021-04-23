@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class MainMenu {
 
-  private ArrayList<String> mainMenu = new ArrayList<>();
+  //Attributes
   private UI ui;
   private FileHandling fh = new FileHandling();
   private Carte carte = new Carte();
@@ -18,13 +18,10 @@ public class MainMenu {
   private ArrayList<Order> oldOrders = new ArrayList<>();
 
 
+  //Methods
 
-  public void runMainMenu(){
-
-    carte.setPizza(fh.loadPizzaFromFile("PizzaList.txt"));
-    rm.setOrders(fh.loadOrdersFromFile("OrderList.txt"));
-    oldOrders = fh.loadOrdersFromFile("OldOrders.txt");
-
+  public ArrayList<String> mainMenuOption(){
+    ArrayList<String> mainMenu = new ArrayList<>();
 
     mainMenu.add("1. Show Pizza Menu");
     mainMenu.add("2. Register order");
@@ -34,7 +31,17 @@ public class MainMenu {
     mainMenu.add("6. View Statistics");
     mainMenu.add("9. Quit");
 
-    ui = new UI("MENU", mainMenu, "PLEASE CHOOSE OPTION: ");
+    return mainMenu;
+  }
+
+  public void runMainMenu(){
+
+    carte.setPizza(fh.loadPizzaFromFile("PizzaList.txt"));
+    rm.setOrders(fh.loadOrdersFromFile("OrderList.txt"));
+    oldOrders = fh.loadOrdersFromFile("OldOrders.txt");
+
+
+    ui = new UI("MENU", mainMenuOption(), "PLEASE CHOOSE OPTION: ");
 
     int choice = 0;
 
@@ -73,9 +80,9 @@ public class MainMenu {
     UI ui = new UI();
     ui.returnMessage("Current order: ");
     ui.viewOrders(orders);
-    ui.setOption("Select the order you want to remove ")
+    ui.setOption("Select the order you want to remove ");
 
-    long choice = ui.readChoice2();
+    long choice = ui.readOrderNumber();
 
     Order order = null;
     for(Order o : orders){
@@ -97,7 +104,7 @@ public class MainMenu {
     ui.viewOrders(orders);
     ui.setOption("Select the order you want to send ");
 
-    long choice = ui.readChoice2();
+    long choice = ui.readOrderNumber();
 
     Order order = null;
     for(Order o : orders){
@@ -117,7 +124,20 @@ public class MainMenu {
     } else {
       ui.returnMessage("Not valid order input");
     }
-    //Order order = orders.get(choice - 1);
+  }
+
+
+  public void popularPizza(){
+    //how much each pizza is chosen
+    //most popular pizza
+    //Chirs
+  }
+
+  public void totalProfit(){
+  //Vitaliy
+  }
+
+  public void averageOrderPrice(){
 
   }
 

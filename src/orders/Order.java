@@ -6,6 +6,7 @@ import menu.RegisterMenu;
 import ui.UI;
 
 import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -17,9 +18,7 @@ public class Order {
 
 
   //ATTRIBUTES
-  private LocalDateTime timeOfOrder = LocalDateTime.now();
   private LocalDateTime pickUpTime;
-  private ArrayList<Pizza> pizzaList = new ArrayList<>();
   private ArrayList<String> pizzaNames = new ArrayList<>();
   private ArrayList<Double> pizzaPrice = new ArrayList<>();
   private UI ui = new UI();
@@ -52,20 +51,13 @@ public class Order {
   public String getName() {
     return name;
   }
-
   public ArrayList<Double> getPizzaPrice() { return pizzaPrice; }
 
   public LocalDateTime getPickUpTime() {
     return pickUpTime;
   }
 
-
-//  public ArrayList<Pizza> getPizzaList() {
-//    return pizzaList;
-//  }
   public ArrayList<String> getPizzaNames() {return pizzaNames; }
-
-  //public ArrayList<Order> getOrders() {return orders;}
 
   public long getOrderNumber() {
     return orderNumber;
@@ -79,13 +71,7 @@ public class Order {
 
   public void setPizzaPrice(ArrayList<Double> pizzaPrice){this.pizzaPrice = pizzaPrice;}
 
-  public void setPizzaList(ArrayList<Pizza> pizzaList) {
-    this.pizzaList = pizzaList;
-  }
   public void setPizzaNames(ArrayList<String> pizzaNames) { this.pizzaNames = pizzaNames; }
-
-  //public void setOrders(ArrayList<Order> orders) {this.orders = orders;}
-
 
   public void setOrderNumber(long orderNumber) {
     this.orderNumber = orderNumber;
@@ -98,12 +84,13 @@ public class Order {
 
 
   //METHODS
-  /*public void addPizza(Pizza pizza) {
-    pizzaList.add(pizza);
-  }*/
 
-  public void addPizza(String pizzaName) {pizzaNames.add(pizzaName);}
-  public void addPizzaPrice(double price) {pizzaPrice.add(price); }
+  //Change to one method???
+  public void addPizza(String pizzaName) {
+    pizzaNames.add(pizzaName);}
+  public void addPizzaPrice(double price) {
+    pizzaPrice.add(price); }
+
 
   public void removePizza(Order order) {    //Remove pizza(s) from ongoing order
     ui = new UI();
@@ -129,6 +116,13 @@ public class Order {
     return count;
   }
 
+  public long giveOrderNumber() {
 
+    Date date = new Date();
+    SimpleDateFormat formatter = new SimpleDateFormat("ddMMyyHHmmss");
+    long orderNumber = Long.parseLong(formatter.format(date));
+
+    return orderNumber;
+  }
 
 }

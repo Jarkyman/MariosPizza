@@ -14,20 +14,19 @@ import java.util.Date;
 
 public class RegisterMenu {
 
-  //private ArrayList<String> registerMenu = new ArrayList<>();
+  //Attributes
   private Order order;
   private UI ui;
   private FileHandling fh = new FileHandling();
   private ArrayList<Order> orders = new ArrayList<>();
 
-//  public ArrayList<Order> getOrders() {
-//    return orders;
-//  }
-
+  //Getter
   public ArrayList<Order> getOrders(){return orders;}
 
+  //Setter
   public void setOrders (ArrayList<Order> orders){this.orders = orders;}
 
+  //Methods
   public ArrayList<String> menuOption() {
     ArrayList<String> registerMenu = new ArrayList<>();
     registerMenu.add("1. Add Pizza");
@@ -39,7 +38,6 @@ public class RegisterMenu {
     return registerMenu;
   }
 
-
   public void registerOrder(ArrayList<Pizza> pizzasInMenu) {
     order = new Order();
     Pizza pizza = choosePizza(pizzasInMenu);
@@ -47,15 +45,12 @@ public class RegisterMenu {
     order.addPizzaPrice(pizza.getPrice());
     order.setName(ui.name());
     choosePickUpTime(order);
-    Date date = new Date();
-    SimpleDateFormat formatter = new SimpleDateFormat("ddMMyyHHmmss");
-    long orderNumber = Long.parseLong(formatter.format(date));
-    order.setOrderNumber(orderNumber);
+
+    //Does it work?
+    order.setOrderNumber(order.giveOrderNumber());
 
 
     int choice = 0;
-
-    //choosePickUpTime(order);
 
     while(choice != 6) {
 
@@ -77,9 +72,6 @@ public class RegisterMenu {
           break;
         case 4:
           choosePickUpTime(order);
-
-         // order.setOrderNumber(orders.size() + 1);
-         // order.setOrderNumber(orders.indexOf(order));
           break;
         case 5:
           giveName(order);
@@ -87,13 +79,11 @@ public class RegisterMenu {
         case 6:
           saveOrderToArray(order);
           fh.saveOrdersToFile("OrderList.txt", orders);
-          //Save order in file
           break;
         default:
           ui.returnMessage("NOT A VALID INPUT");
       }
     }
-
   }
 
   public void saveOrderToArray(Order order) {
@@ -101,7 +91,6 @@ public class RegisterMenu {
   }
 
   public void giveName(Order order){
-
     order.setName(ui.name());
   }
 
@@ -122,9 +111,6 @@ public class RegisterMenu {
     return pizza;
   }
 
-
-
-
   public LocalDateTime choosePickUpTime(Order order) {
 
     LocalDate date = ui.date();
@@ -134,9 +120,8 @@ public class RegisterMenu {
 
     return LocalDateTime.of(date, time);
   }
-//  public void orderNumber(Order order){
-//    order.setOrderNumber(orders.indexOf(order));
-//  }
+
+
 
 /*
     private void chooseTopping() {
