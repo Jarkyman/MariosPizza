@@ -66,6 +66,14 @@ public class Order {
 
   //SETTER
   public void setName(String name) {
+
+    String[] nameSplitter = name.split(" ");
+
+    for (int i = 0; i < nameSplitter.length; i++) {
+      nameSplitter[i] = nameSplitter[i].substring(0,1).toUpperCase() + nameSplitter[i].substring(1).toLowerCase();
+    }
+    name = String.join(" ", nameSplitter);
+
     this.name = name;
   }
 
