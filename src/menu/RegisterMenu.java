@@ -56,7 +56,7 @@ public class RegisterMenu {
 
       UI ui = new UI("MENU: ", menuOption(), "PLEASE CHOOSE OPTION: ");
       ui.printMenu();
-      choice = ui.readChoice();
+      choice = ui.readChoice(7);
 
       switch (choice) {
         case 1:
@@ -117,12 +117,11 @@ public class RegisterMenu {
     ui.showPizzaMenu(pizzaInMenu);
     ui.setOption("PLEASE CHOOSE A PIZZA ON THE MENU: ");
 
-    int choice =  ui.readChoice();
+    int choice =  ui.readChoice(30);
 
     Pizza pizza = pizzaInMenu.get(choice - 1);
 
     System.out.println(choice + ". " + pizza.getName());
-    //chooseTopping();
 
     return pizza;
   }
@@ -137,18 +136,6 @@ public class RegisterMenu {
     return LocalDateTime.of(date, time);
   }
 
-
-
-/*
-    private void chooseTopping() {
-
-      // tilføj topping
-
-      // + ekstra pris
-
-    }
-
- */
 
   }
 

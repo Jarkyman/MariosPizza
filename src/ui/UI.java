@@ -57,7 +57,7 @@ public class UI {
     }
   }
 
-  public int readChoice(){
+  public int readChoice(int max){
     int choice = 0;
     do {
       System.out.println(getOption());
@@ -69,11 +69,11 @@ public class UI {
       choice = sc.nextInt();
       sc.nextLine();
 
-      if (choice <= 0 || choice > 30) {
+      if (choice <= 0 || choice > max) {
         System.out.println("NOT A VALID CHOICE");
       }
     }
-    while(choice <= 0 || choice > 30);
+    while(choice <= 0 || choice > max);
 
     return choice;
   }
@@ -126,8 +126,9 @@ public class UI {
 
   public void showPizzaMenu(ArrayList<Pizza> pizzaList){
     for(int i = 0; i < pizzaList.size(); i++){
-      System.out.printf("\033[4m%-3d %-20s %-90s %.2f DKK\033[0m\n", (i + 1), pizzaList.get(i).getName(), pizzaList.get(i).getToppings().toString()
-          .replaceAll("\\[", "").replaceAll("]", ""), pizzaList.get(i).getPrice());
+      System.out.printf("\033[4m%-3d %-20s %-90s %.2f DKK\033[0m\n", (i + 1), pizzaList.get(i).getName(),
+          pizzaList.get(i).getToppings().toString().replaceAll("\\[", "").
+              replaceAll("]", ""), pizzaList.get(i).getPrice());
     }
   }
 
@@ -141,9 +142,9 @@ public class UI {
     int count = 1;
 
     for(String n : order.getPizzaNames()){
-      System.out.println(count++ + ". " + n + " Price: " + order.getPizzaPrice().get(count - 2));
+      System.out.println(count++ + ". " + n + " Price: " + order.getPizzaPrice().get(count - 2) + " DKK");
     }
-    System.out.println("TOTAL PRICE: " + order.priceTotal());
+    System.out.println("TOTAL PRICE: " + order.priceTotal() + " DKK");
     System.out.println();
   }
 
@@ -154,7 +155,8 @@ public class UI {
       String pickupTimeText = pickUpTime;
 
       System.out.println("--------------------------------------");
-      System.out.printf("%-15s %-15d\n%-15s %-15s\n%-15s %.2f DKK\n%-15s %-15s\n%-15s %-15s\n","Order number:", o.getOrderNumber(), "Costumer name:", o.getName(),"Price:", o.priceTotal(),"Pick up time",
+      System.out.printf("%-15s %-15d\n%-15s %-15s\n%-15s %.2f DKK\n%-15s %-15s\n%-15s %-15s\n","Order number:",
+          o.getOrderNumber(), "Costumer name:", o.getName(),"Price:", o.priceTotal(),"Pick up time",
           pickupTimeText, "Order:", o.getPizzaNames().toString().replaceAll("\\[", "").replaceAll("]", ""));
     }
 
@@ -163,7 +165,7 @@ public class UI {
   }
 
   public String name() {
-    System.out.println("ENTER NAME OF COSTUMER: ");
+    System.out.println("ENTER NAME OF CUSTOMER: ");
     String name = sc.nextLine();
 
     return name;

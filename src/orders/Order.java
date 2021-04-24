@@ -106,7 +106,7 @@ public class Order {
     ui.viewOrder(order);
     ui.setOption("SELECT THE PIZZA YOU WANT TO REMOVE: ");
 
-    int choice = ui.readChoice();
+    int choice = ui.readChoice(getPizzaNames().size());
 
     order.getPizzaNames().remove(choice - 1);
     order.getPizzaPrice().remove(choice - 1);

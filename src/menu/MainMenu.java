@@ -49,7 +49,7 @@ public class MainMenu {
 
     while(choice != 9){
       ui.printMenu();
-      choice = ui.readChoice();
+      choice = ui.readChoice(10);
       switch(choice){
         case 1:
           ui.showPizzaMenu(carte.getPizza());

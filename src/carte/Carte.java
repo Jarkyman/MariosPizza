@@ -14,15 +14,6 @@ public class Carte {
   //setter
   public void setPizza(ArrayList<Pizza> pizza) { this.pizza = pizza; }
 
-  //method
-  public void createPizza() {
-
-    //topping.add(topping);
-    //pizza.add(pizza);
-
-  }
-
-
 }
 
 
