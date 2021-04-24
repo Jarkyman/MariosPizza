@@ -8,11 +8,21 @@ hanne
 75.0
 Jackie Special
 2021-01-12T12:13
-230421115025
-Vitaliy
-80.0, 95.0
-Salami, Mario special
-2021-04-23T13:19
+240421140844
+jack
+75.0
+Jackie Special
+2020-12-12T12:45
+240421140845
+jack
+75.0
+Jackie Special
+2020-12-12T12:45
+240421140846
+jack
+75.0
+Jackie Special
+2020-12-12T12:45
 240421145528
 hans
 85.0
