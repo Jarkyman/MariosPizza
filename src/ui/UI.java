@@ -62,7 +62,7 @@ public class UI {
     do {
       System.out.println(getOption());
       while (!sc.hasNextInt()) {
-        System.out.println("NOT A VALID INPUT");
+        System.out.println("NOT A VALID CHOICE");
         sc.next();
         System.out.println(getOption());
       }
@@ -70,7 +70,7 @@ public class UI {
       sc.nextLine();
 
       if (choice <= 0 || choice > 30) {
-        System.out.println("NOT A VALID INPUT");
+        System.out.println("NOT A VALID CHOICE");
       }
     }
     while(choice <= 0 || choice > 30);
