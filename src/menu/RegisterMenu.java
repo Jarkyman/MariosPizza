@@ -87,7 +87,21 @@ public class RegisterMenu {
   }
 
   public void saveOrderToArray(Order order) {
-    orders.add(order);
+
+    boolean flag = true;
+
+    for (int i = 0; i < orders.size(); i++) {
+      if(flag) {
+        if (order.getPickUpTime().isBefore(orders.get(i).getPickUpTime())) {
+          orders.add(i, order);
+          flag = false;
+        }
+      }
+    }
+
+    if(flag) {
+      orders.add(order);
+    }
   }
 
   public void giveName(Order order){

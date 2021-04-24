@@ -44,7 +44,7 @@ public class Statistics {
         //String[] temp = oldOrders.get(i).getPizzaNames().split(",");
         for(int k = 0; k < oldOrders.get(i).getPizzaNames().size(); k++){
           if (oldOrders.get(i).getPizzaNames().get(k).equals(pizzaInMenu.get(j).getName())) {
-            count[i]++;
+            count[j]++;
           }
         }
       }

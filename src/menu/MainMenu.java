@@ -84,7 +84,7 @@ public class MainMenu {
     UI ui = new UI();
     ui.returnMessage("CURRENT ORDER: ");
     ui.viewOrders(orders);
-    ui.setOption("SELECT THE ORDER YOU WANT TO REMOVE: ");
+    ui.setOption("SELECT THE ORDER YOU WANT TO REMOVE (0 FOR EXIT): ");
 
     long choice = ui.readOrderNumber(orders);
 

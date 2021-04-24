@@ -71,23 +71,38 @@ public class UI {
   }
 
   public long readOrderNumber(ArrayList<Order> orders) {
-    long choice = 0;
+    long choice;
 
-    for (Order o : orders) {
-      long orderNumber = o.getOrderNumber();
+    do{
       System.out.println(getOption());
       while (!sc.hasNextLong()) {
         System.out.println("NOT A VALID INPUT");
         sc.next();
+        System.out.println(getOption());
       }
       choice = sc.nextLong();
       sc.nextLine();
-      if (choice == orderNumber) {
-        return choice;
+      if(!orderExists(orders, choice)){
+        System.out.println("NOT A VALID INPUT");
       }
-    }
+      for (Order o : orders) {
+        if (choice == o.getOrderNumber()) {
+          return choice;
+        }
+      }
+
+    } while (!orderExists(orders, choice) && choice != 0);
 
     return choice;
+  }
+
+  private boolean orderExists(ArrayList<Order> orders, long choice){
+    for (Order o : orders) {
+      if (choice == o.getOrderNumber()) {
+        return true;
+      }
+    }
+    return false;
   }
 
 
@@ -150,6 +165,7 @@ public class UI {
   public LocalDate date(){
 
     System.out.println("ENTER PICK UP DATE (dd-mm-yyyy): ");
+
     String input = sc.nextLine();
 
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
