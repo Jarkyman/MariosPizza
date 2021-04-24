@@ -2,6 +2,9 @@ package ui;
 
 import carte.Pizza;
 import orders.Order;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -162,45 +165,49 @@ public class UI {
   }
 
 
+  public boolean validateDate(String input){
+
+    try{
+      SimpleDateFormat format = new SimpleDateFormat("dd-mm-yyyy");
+      format.setLenient(false);
+      format.parse(input);
+      return true;
+
+    }catch (Exception e){
+      return false;
+    }
+  }
+
   public LocalDate date(){
 
     System.out.println("ENTER PICK UP DATE (dd-mm-yyyy): ");
 
     String input = sc.nextLine();
 
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+    while(!validateDate(input)) {
+      System.out.println("NOT A VALID INPUT");
+      input = sc.nextLine();
+    }
+
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d-M-yyyy");
     LocalDate date = LocalDate.parse(input, formatter);
 
     return date;
 
   }
 
+
   public LocalTime time() {
-
     System.out.println("ENTER PICK UP TIME (hh:mm): ");
-
     String input = sc.nextLine();
-
+    while (!(input.matches("([01]?[0-9]|2[0-3]):[0-5][0-9]"))){
+      System.out.println("ENTER PICK UP TIME (hh:mm): ");
+      input = sc.nextLine();
+    }
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
     LocalTime time = LocalTime.parse(input, formatter);
-
     return time;
   }
-
-/*
-  public LocalDateTime dateTime(){
-    System.out.println("PLEASE CHOOSE A PICK UP TIME (dd-mm-yyyy hh:mm): ");
-
-    String input = sc.nextLine();
-
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
-    LocalDateTime dateTime = LocalDateTime.parse(input, formatter);
-
-    System.out.println(dateTime);
-    return dateTime;
-  }
-
- */
 
 
   public void printReceipt(Order order) {

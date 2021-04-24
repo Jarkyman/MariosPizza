@@ -25,23 +25,12 @@ public class Statistics {
 
 
   public void popularPizza(ArrayList<Order> oldOrders, ArrayList<Pizza> pizzaInMenu){
-/*
-    ArrayList<Integer> count = new ArrayList<>();
-
-    for(Order o : oldOrders){
-     String name = o.getPizzaName();
-     if(name.equals(pizzaInMenu.getPizzaNames()));
-    }
-
- */
 
     count = new int[pizzaInMenu.size()];
 
     for(int i = 0; i < oldOrders.size(); i++){
-      //System.out.println(oldOrders.get(i).getPizzaNames());
 
       for(int j = 0; j < pizzaInMenu.size(); j++) {
-        //String[] temp = oldOrders.get(i).getPizzaNames().split(",");
         for(int k = 0; k < oldOrders.get(i).getPizzaNames().size(); k++){
           if (oldOrders.get(i).getPizzaNames().get(k).equals(pizzaInMenu.get(j).getName())) {
             count[j]++;
@@ -94,15 +83,10 @@ public class Statistics {
     double price = 0;
     for(Order o : orders){
       price = o.priceTotal();
-      //ui.returnMessage("Order total: " + price);
       count += price;
     }
 
-    //ui.returnMessage("Total profit : " + count);
-
     double average = count / orders.size();
-
-//    ui.returnMessage("Average order price: " + average);
 
     System.out.println("Average order price: " + average);
   }
