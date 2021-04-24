@@ -68,6 +68,7 @@ public class MainMenu {
           break;
         case 6:
           st.popularPizza(oldOrders, carte.getPizza());
+          st.averageOrderPrice(oldOrders);
           //averageOrderPrice(oldOrders);
           //ui.viewStatistics();
           break;
