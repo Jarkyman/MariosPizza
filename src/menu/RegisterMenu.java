@@ -99,13 +99,13 @@ public class RegisterMenu {
     ui = new UI();
     ui.returnMessage("MENU: ");
     ui.showPizzaMenu(pizzaInMenu);
-    ui.setOption("PLEASE CHOOSE AN OPTION: ");
+    ui.setOption("PLEASE CHOOSE A PIZZA ON THE MENU: ");
 
     int choice =  ui.readChoice();
 
     Pizza pizza = pizzaInMenu.get(choice - 1);
 
-    System.out.println(pizza.getName());
+    System.out.println(choice + ". " + pizza.getName());
     //chooseTopping();
 
     return pizza;

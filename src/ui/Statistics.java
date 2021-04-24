@@ -1,10 +1,17 @@
 package ui;
 
+import carte.Pizza;
+import orders.Order;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Statistics {
 
-  public void pizzaOrderCount(ArrayList<Pizza> pizzaInMenu, ) {
+  private int[] count;
+
+/*
+  public void pizzaOrderCount(ArrayList<Pizza> pizzaInMenu) {
 
     counts = new int[pizzaInMenu.size()];
     for (int i = 0; i < counts.length; i++) {
@@ -14,14 +21,54 @@ public class Statistics {
     }
   }
 
+ */
 
 
-  public void popularPizza(){
-    //how much each pizza is chosen
-    //most popular pizza
-    //Chirs
+  public void popularPizza(ArrayList<Order> oldOrders, ArrayList<Pizza> pizzaInMenu){
+/*
+    ArrayList<Integer> count = new ArrayList<>();
+
+    for(Order o : oldOrders){
+     String name = o.getPizzaName();
+     if(name.equals(pizzaInMenu.getPizzaNames()));
+    }
+
+ */
+
+    count = new int[pizzaInMenu.size()];
+
+    for(int i = 0; i < oldOrders.size(); i++){
+      //System.out.println(oldOrders.get(i).getPizzaNames());
+
+      for(int j = 0; j < pizzaInMenu.size(); j++) {
+        //String[] temp = oldOrders.get(i).getPizzaNames().split(",");
+        for(int k = 0; k < oldOrders.get(i).getPizzaNames().size(); k++){
+          if (oldOrders.get(i).getPizzaNames().get(k).equals(pizzaInMenu.get(j).getName())) {
+            count[i]++;
+          }
+        }
+      }
+    }
+
+    System.out.println(Arrays.toString(count));
+
   }
 
+  public static void topChoice(int[] choiceCount, String[] itemList){
+    int max = 0;
+    int index = 0;
+    for(int i = 0; i < choiceCount.length; i++){
+      if(choiceCount[i] > max){
+        max = choiceCount[i];
+        index = i;
+      }
+    }
+    String item = itemList[index];
+    System.out.println("The most popular choice was: " + item + ".\nThe number of times it was chosen: " + max);
+  }
+
+
+/*
   public double totalProfit(){
     double profit = 0;
     for (int i = 0; i < oldOrders.size();i++){
@@ -47,4 +94,8 @@ public class Statistics {
     ui.returnMessage("Average order price: " + average);
 
   }
+
+ */
+
+
 }

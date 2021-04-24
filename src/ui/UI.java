@@ -55,24 +55,41 @@ public class UI {
   }
 
   public int readChoice(){
-    System.out.println(getOption());
-
     int choice = 0;
-    choice = sc.nextInt();
-    sc.nextLine();
+    do {
+      System.out.println(getOption());
+      while (!sc.hasNextInt()) {
+        System.out.println("NOT A VALID INPUT");
+        sc.next();
+      }
+      choice = sc.nextInt();
+      sc.nextLine();
+    }
+    while(choice <= 0 || choice > 30);
 
     return choice;
   }
 
-  public long readOrderNumber(){
-    System.out.println(getOption());
-
+  public long readOrderNumber(ArrayList<Order> orders) {
     long choice = 0;
-    choice = sc.nextLong();
-    sc.nextLine();
+
+    for (Order o : orders) {
+      long orderNumber = o.getOrderNumber();
+      System.out.println(getOption());
+      while (!sc.hasNextLong()) {
+        System.out.println("NOT A VALID INPUT");
+        sc.next();
+      }
+      choice = sc.nextLong();
+      sc.nextLine();
+      if (choice == orderNumber) {
+        return choice;
+      }
+    }
 
     return choice;
   }
+
 
   public String readLine(){
     String line = sc.next();
@@ -96,14 +113,14 @@ public class UI {
     pickUpTime = pickUpTime.replaceAll("T", " ");
 
     System.out.println("PICK UP TIME: " + pickUpTime);
-    System.out.println("Customers name: " + order.getName());
-    System.out.println("Pizzas: ");
+    System.out.println("CUSTOMER NAME: " + order.getName());
+    System.out.println("PIZZA: ");
     int count = 1;
 
     for(String n : order.getPizzaNames()){
       System.out.println(count++ + ". " + n + " Price: " + order.getPizzaPrice().get(count - 2));
     }
-    System.out.println("Total price: " + order.priceTotal());
+    System.out.println("TOTAL PRICE: " + order.priceTotal());
     System.out.println();
   }
 
@@ -123,7 +140,7 @@ public class UI {
   }
 
   public String name() {
-    System.out.println("Enter name of costumer: ");
+    System.out.println("ENTER NAME OF COSTUMER: ");
     String name = sc.nextLine();
 
     return name;
@@ -132,7 +149,7 @@ public class UI {
 
   public LocalDate date(){
 
-    System.out.println("Enter date (dd-mm-yyyy): ");
+    System.out.println("ENTER PICK UP DATE (dd-mm-yyyy): ");
     String input = sc.nextLine();
 
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -144,7 +161,7 @@ public class UI {
 
   public LocalTime time() {
 
-    System.out.println("PLEASE CHOOSE A PICK UP TIME (hh:mm): ");
+    System.out.println("ENTER PICK UP TIME (hh:mm): ");
 
     String input = sc.nextLine();
 
@@ -154,7 +171,7 @@ public class UI {
     return time;
   }
 
-
+/*
   public LocalDateTime dateTime(){
     System.out.println("PLEASE CHOOSE A PICK UP TIME (dd-mm-yyyy hh:mm): ");
 
@@ -166,6 +183,8 @@ public class UI {
     System.out.println(dateTime);
     return dateTime;
   }
+
+ */
 
 
   public void printReceipt(Order order) {

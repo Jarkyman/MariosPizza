@@ -4,6 +4,7 @@ import carte.Carte;
 import carte.Pizza;
 import orders.Order;
 import ui.FileHandling;
+import ui.Statistics;
 import ui.UI;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ public class MainMenu {
   private Carte carte = new Carte();
   private RegisterMenu rm = new RegisterMenu();
   private ArrayList<Order> oldOrders = new ArrayList<>();
+  private Statistics st = new Statistics();
 
 
   //Methods
@@ -62,10 +64,10 @@ public class MainMenu {
           removeOrder(rm.getOrders());
           break;
         case 5:
-          averageOrderPrice(rm.getOrders());
           ui.viewOrders(rm.getOrders());
           break;
         case 6:
+          st.popularPizza(oldOrders, carte.getPizza());
           //averageOrderPrice(oldOrders);
           //ui.viewStatistics();
           break;
@@ -80,11 +82,11 @@ public class MainMenu {
 
   public void removeOrder(ArrayList<Order> orders){
     UI ui = new UI();
-    ui.returnMessage("Current order: ");
+    ui.returnMessage("CURRENT ORDER: ");
     ui.viewOrders(orders);
-    ui.setOption("Select the order you want to remove ");
+    ui.setOption("SELECT THE ORDER YOU WANT TO REMOVE: ");
 
-    long choice = ui.readOrderNumber();
+    long choice = ui.readOrderNumber(orders);
 
     Order order = null;
     for(Order o : orders){
@@ -102,11 +104,11 @@ public class MainMenu {
 
   public void sendOrder(ArrayList<Order> orders) {
     UI ui = new UI();
-    ui.returnMessage("Current order: ");
+    ui.returnMessage("CURRENT ORDER: ");
     ui.viewOrders(orders);
-    ui.setOption("Select the order you want to send ");
+    ui.setOption("SELECT THE ORDER YOU WANT TO SEND: ");
 
-    long choice = ui.readOrderNumber();
+    long choice = ui.readOrderNumber(orders);
 
     Order order = null;
     for(Order o : orders){
@@ -124,10 +126,9 @@ public class MainMenu {
       orders.remove(order);
       fh.saveOrdersToFile("OrderList.txt", orders);
     } else {
-      ui.returnMessage("Not valid order input");
+      ui.returnMessage("NOT A VALID INPUT");
     }
   }
-
 
   }
 

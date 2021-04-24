@@ -94,9 +94,9 @@ public class Order {
 
   public void removePizza(Order order) {    //Remove pizza(s) from ongoing order
     ui = new UI();
-    ui.returnMessage("Current order: ");
+    ui.returnMessage("CURRENT ORDER: ");
     ui.viewOrder(order);
-    ui.setOption("Select the pizza you want to remove ");
+    ui.setOption("SELECT THE PIZZA YOU WANT TO REMOVE: ");
 
     int choice = ui.readChoice();
 
