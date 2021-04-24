@@ -71,7 +71,6 @@ public class UI {
 
       if (choice <= 0 || choice > 30) {
         System.out.println("NOT A VALID INPUT");
-        System.out.println(getOption());
       }
     }
     while(choice <= 0 || choice > 30);
