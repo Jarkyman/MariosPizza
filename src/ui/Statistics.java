@@ -9,19 +9,7 @@ import java.util.Arrays;
 public class Statistics {
 
   private int[] count;
-
-/*
-  public void pizzaOrderCount(ArrayList<Pizza> pizzaInMenu) {
-
-    counts = new int[pizzaInMenu.size()];
-    for (int i = 0; i < counts.length; i++) {
-      if (pizza.getName().equals(pizzaInMenu.get(i).getName())) {
-        counts[i]++;
-      }
-    }
-  }
-
- */
+  private UI ui = new UI();
 
 
   public void popularPizza(ArrayList<Order> oldOrders, ArrayList<Pizza> pizzaInMenu){
@@ -39,7 +27,7 @@ public class Statistics {
       }
     }
 
-    System.out.println(Arrays.toString(count));
+    //System.out.println(Arrays.toString(count));
 
     int temp = 0;
     int popular = 0;
@@ -50,45 +38,33 @@ public class Statistics {
       }
     }
 
-    System.out.println(pizzaInMenu.get(popular));
+    ui.returnMessage("The most popular pizza is: " + pizzaInMenu.get(popular).getName());
 
   }
 
-  public static void topChoice(int[] choiceCount, String[] itemList){
-    int max = 0;
-    int index = 0;
-    for(int i = 0; i < choiceCount.length; i++){
-      if(choiceCount[i] > max){
-        max = choiceCount[i];
-        index = i;
-      }
-    }
-    String item = itemList[index];
-    System.out.println("The most popular choice was: " + item + ".\nThe number of times it was chosen: " + max);
-  }
-
-
-
-  public double totalProfit(ArrayList<Order> oldOrders){
+  public void totalProfit(ArrayList<Order> oldOrders){
     double profit = 0;
     for (int i = 0; i < oldOrders.size();i++){
       profit += oldOrders.get(i).priceTotal();
     }
-    return profit;
+
+    String p = String.valueOf(profit);
+
+    ui.returnMessage("Total profit is: " + p + " DKK");
   }
 
-  public void averageOrderPrice(ArrayList<Order> orders){
+  public void averageOrderPrice(ArrayList<Order> oldOrders){
 
     int count = 0;
     double price = 0;
-    for(Order o : orders){
+    for(Order o : oldOrders){
       price = o.priceTotal();
       count += price;
     }
 
-    double average = count / orders.size();
+    double average = count / oldOrders.size();
 
-    System.out.println("Average order price: " + average);
+    System.out.println("Average order price: " + average + " DKK");
   }
 
 

@@ -1,30 +1,35 @@
+240421165348
+Sam
+65.0
+Hawaii
+2020-12-12T12:12
 240421145702
-julie
+Julie
 65.0
 Hawaii
 2021-01-12T12:12
 240421150143
-hanne
+Hanne
 75.0
 Jackie Special
 2021-01-12T12:13
 240421140844
-jack
+Jack
 75.0
 Jackie Special
 2020-12-12T12:45
 240421140845
-jack
+Jack
 75.0
 Jackie Special
 2020-12-12T12:45
 240421140846
-jack
+Jack
 75.0
 Jackie Special
 2020-12-12T12:45
 240421145528
-hans
+Hans
 85.0
 Caprese
 2021-04-23T13:20

@@ -102,6 +102,8 @@ public class RegisterMenu {
     if(flag) {
       orders.add(order);
     }
+
+    ui.viewOrder(order);
   }
 
   public void giveName(Order order){
