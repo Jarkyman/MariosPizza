@@ -89,7 +89,7 @@ public class FileHandling {
     File fileOrders = new File(fileName);
     try {
       FileWriter fileWriterOrders = new FileWriter(fileOrders);
-      Writer writerOrders = new BufferedWriter(fileWriterOrders); //Remove []
+      Writer writerOrders = new BufferedWriter(fileWriterOrders);
 
 
       for (int i = 0; i < orders.size(); i++) {

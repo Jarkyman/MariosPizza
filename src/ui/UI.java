@@ -50,9 +50,10 @@ public class UI {
 
 
   //Methods
+  //TJEK METHOD
   public void printMenu(){
     System.out.println(getTitle());
-    for(Object s : getList()){
+    for(String s : getList()){
       System.out.println(s);
     }
   }
