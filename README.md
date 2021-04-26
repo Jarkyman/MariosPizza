@@ -1,6 +1,6 @@
 # MariosPizza
 Gruppe nummer 9: 
-Kamille
-Jackie
-Vitaliy
-Christoffer
+Kamille Annemone Nikolajsen
+Jackie Hartvig Jensen
+Vitaliy Serdyukov
+Christoffer Pedersen
