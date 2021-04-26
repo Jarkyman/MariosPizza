@@ -17,8 +17,7 @@ public class MainMenu {
   private RegisterMenu rm = new RegisterMenu();
   private ArrayList<Order> oldOrders = new ArrayList<>();
   private Statistics st = new Statistics();
-
-
+  
   //Methods
 
   public ArrayList<String> mainMenuOption(){

@@ -116,7 +116,7 @@ public class UI {
   }
 
 
-  public String readLine(){
+  public String readString(){
     String String = sc.next();
     return String;
   }
