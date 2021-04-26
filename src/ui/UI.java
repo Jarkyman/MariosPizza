@@ -3,8 +3,6 @@ package ui;
 import carte.Pizza;
 import orders.Order;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -193,15 +191,19 @@ public class UI {
 
   public boolean validateDate(String input){
 
+
+
+    /*
     try{
-      SimpleDateFormat format = new SimpleDateFormat("dd-mm-yyyy");
-      format.setLenient(false);
+      DateTimeFormatter format = DateTimeFormatter.ofPattern("d-M-yyyy");
       format.parse(input);
       return true;
 
     }catch (Exception e){
       return false;
     }
+
+     */
   }
 
   public LocalDate date(){
@@ -218,6 +220,7 @@ public class UI {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d-M-yyyy");
     LocalDate date = LocalDate.parse(input, formatter);
 
+    date = LocalDate.of(2020, 04, 31);
     return date;
 
   }

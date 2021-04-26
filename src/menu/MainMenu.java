@@ -15,7 +15,7 @@ public class MainMenu {
   private FileHandling fh = new FileHandling();
   private Carte carte = new Carte();
   private RegisterMenu rm = new RegisterMenu();
-  private ArrayList<Order> oldOrders = new ArrayList<>();
+  private ArrayList<Order> oldOrders = new ArrayList();
   private Statistics st = new Statistics();
   
   //Methods

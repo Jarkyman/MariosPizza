@@ -1,6 +1,7 @@
 package carte;
 
 import java.util.ArrayList;
+import ui.UI;
 
 public class Carte {
   private UI ui = new UI();
@@ -17,7 +18,7 @@ public class Carte {
   //Method
   public void createPizza(){
 
-    String name = ui.readLine();
+    String name = ui.readString();
     ArrayList<String> toppings = ui.returnTopping();
     double price = ui.returnDouble();
 
