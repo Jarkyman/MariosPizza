@@ -51,12 +51,13 @@ public class RegisterMenu {
 
 
     int choice = 0;
+    int menuOptions = 7;
 
     while(choice != 6) {
 
       UI ui = new UI("MENU: ", menuOption(), "PLEASE CHOOSE OPTION: ");
       ui.printMenu();
-      choice = ui.readChoice(7);
+      choice = ui.readChoice(menuOptions);
 
       switch (choice) {
         case 1:
@@ -117,7 +118,7 @@ public class RegisterMenu {
     ui.showPizzaMenu(pizzaInMenu);
     ui.setOption("PLEASE CHOOSE A PIZZA ON THE MENU: ");
 
-    int choice =  ui.readChoice(30);
+    int choice =  ui.readChoice(pizzaInMenu.size());
 
     Pizza pizza = pizzaInMenu.get(choice - 1);
 

@@ -20,7 +20,7 @@ public class FileHandling {
 
       for (Pizza p : list) {
         writer.write(p.getName() + "\n");
-        writer.write(p.getToppings().toString() + "\n");
+        writer.write(p.getToppings().toString().replaceAll("\\[", "").replaceAll("]", "") + "\n");
         writer.write(p.getPrice() + "\n");
       }
 

@@ -3,17 +3,27 @@ package carte;
 import java.util.ArrayList;
 
 public class Carte {
+  private UI ui = new UI();
 
   //Attributes
-  public ArrayList<Pizza> pizza = new ArrayList<>();
-  public ArrayList<String> topping = new ArrayList<String>();
+  public ArrayList<Pizza> pizzas = new ArrayList<>();
 
-  //getter
-  public ArrayList<Pizza> getPizza() {return pizza;}
+  //Setter
+  public ArrayList<Pizza> getPizzas() {return pizzas;}
 
-  //setter
-  public void setPizza(ArrayList<Pizza> pizza) { this.pizza = pizza; }
+  //Setter
+  public void setPizzas(ArrayList<Pizza> pizzas) { this.pizzas = pizzas; }
 
+  //Method
+  public void createPizza(){
+
+    String name = ui.readLine();
+    ArrayList<String> toppings = ui.returnTopping();
+    double price = ui.returnDouble();
+
+
+    pizzas.add(new Pizza(name, toppings, price));
+  }
 }
 
 

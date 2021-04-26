@@ -1,7 +1,6 @@
 package menu;
 
 import carte.Carte;
-import carte.Pizza;
 import orders.Order;
 import ui.FileHandling;
 import ui.Statistics;
@@ -31,6 +30,7 @@ public class MainMenu {
     mainMenu.add("4. Remove order");
     mainMenu.add("5. View Orders");
     mainMenu.add("6. View Statistics");
+    mainMenu.add("7. Add pizza to menu");
     mainMenu.add("9. Quit");
 
     return mainMenu;
@@ -38,7 +38,7 @@ public class MainMenu {
 
   public void runMainMenu(){
 
-    carte.setPizza(fh.loadPizzaFromFile("PizzaList.txt"));
+    carte.setPizzas(fh.loadPizzaFromFile("PizzaList.txt"));
     rm.setOrders(fh.loadOrdersFromFile("OrderList.txt"));
     oldOrders = fh.loadOrdersFromFile("OldOrders.txt");
 
@@ -46,16 +46,17 @@ public class MainMenu {
     ui = new UI("MENU", mainMenuOption(), "PLEASE CHOOSE OPTION: ");
 
     int choice = 0;
+    int menuOptions = 9;
 
     while(choice != 9){
       ui.printMenu();
-      choice = ui.readChoice(10);
+      choice = ui.readChoice(menuOptions);
       switch(choice){
         case 1:
-          ui.showPizzaMenu(carte.getPizza());
+          ui.showPizzaMenu(carte.getPizzas());
           break;
         case 2:
-          rm.registerOrder(carte.getPizza());
+          rm.registerOrder(carte.getPizzas());
           break;
         case 3:
           sendOrder(rm.getOrders());
@@ -67,9 +68,12 @@ public class MainMenu {
           ui.viewOrders(rm.getOrders());
           break;
         case 6:
-          st.popularPizza(oldOrders, carte.getPizza());
+          st.popularPizza(oldOrders, carte.getPizzas());
           st.averageOrderPrice(oldOrders);
           st.totalProfit(oldOrders);
+          break;
+        case 7:
+          carte.createPizza();
           break;
         case 9:
           ui.returnMessage("QUIT");

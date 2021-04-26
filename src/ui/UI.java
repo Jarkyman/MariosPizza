@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class UI {
@@ -116,8 +117,25 @@ public class UI {
 
 
   public String readLine(){
-    String line = sc.next();
-    return line;
+    String String = sc.next();
+    return String;
+  }
+
+  public double returnDouble(){
+    double d = sc.nextDouble();
+    return d;
+  }
+
+  public ArrayList<String> returnTopping() {
+    ArrayList<String> toppings = new ArrayList<>();
+
+    System.out.println("Enter toppings, split after ','");
+    String topping = sc.nextLine();
+
+    String[] toppingArray = topping.split(", ");
+    Collections.addAll(toppings, toppingArray);
+
+    return toppings;
   }
 
   public void returnMessage(String message){
