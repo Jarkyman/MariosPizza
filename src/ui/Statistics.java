@@ -4,7 +4,6 @@ import carte.Pizza;
 import orders.Order;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Statistics {
 
