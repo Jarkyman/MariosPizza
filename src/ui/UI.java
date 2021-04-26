@@ -193,15 +193,22 @@ public class UI {
 
   public boolean validateDate(String input){
 
-    try{
-      SimpleDateFormat format = new SimpleDateFormat("dd-mm-yyyy");
-      format.setLenient(false);
-      format.parse(input);
-      return true;
+    String[] splitter = input.split("-");
+    int[] dates = new int[splitter.length];
+    for (int i = 0; i < splitter.length; i++) {
+      dates[i] = Integer.parseInt(splitter[i]);
+    }
 
-    }catch (Exception e){
+    try {
+      DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+      LocalDate date = LocalDate.parse(input, formatter);
+      date = LocalDate.of(dates[2], dates[1], dates[0]);
+
+      return true;
+    } catch (Exception e) {
       return false;
     }
+
   }
 
   public LocalDate date(){

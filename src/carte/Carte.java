@@ -17,7 +17,7 @@ public class Carte {
   //Method
   public void createPizza(){
 
-    String name = ui.readLine();
+    String name = ui.readString();
     ArrayList<String> toppings = ui.returnTopping();
     double price = ui.returnDouble();
 
